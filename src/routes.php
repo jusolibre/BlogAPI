@@ -7,13 +7,22 @@
 		Recup post arg : $response->getParam(valeur);
 */
 
-$app->get('/', function ($request, $response, $args) { // INDEX DU BLOG
-    $query	= $this->db->query("select * from miniblog ORDER BY id DESC;");
-    $fetch	= $query->fetchAll();
-    return $this->renderer->render($response, 'index.phtml', ["article" => $fetch]);
+$app->get('/', function ($request, $response, $args) { // BLOG'S INDEX
+    return $this->renderer->render($response, 'index.phtml',$args);
 });
 
-$app->post('/article', function ($request, $response) { // ENREGISTRER UN NOUVEL ARTICLE PAR POST
+$app->get("/articles", function($request, $response) { // SHOW  ALL ARTICLES IN A JSON OBJECT
+    $article    = [];
+    $query	= $this->db->query("select * from miniblog ORDER BY id DESC;");
+    $fetch	= $query->fetchAll();
+    for ($i = 0; $i < sizeof($fetch); $i++) {
+        $article[] = ["id" => $fetch[$i]["id"], "author" => $fetch[$i]["author"], "title" => $fetch[$i]["title"], "message" => $fetch[$i]["message"], "category" => $fetch[$i]["category"]];
+    }
+    $response->withHeader('Content-type', 'application/json');
+    return $response->withJson(!empty($article) ? $article : ["error" => true, "message" => "Nothing found in database"], 200, JSON_PRETTY_PRINT);
+});
+
+$app->post('/article', function ($request, $response) { // SAVE A NEW ARTICLE FROM A JSON
 	$erreur	= false;
 	$form	= ["author", "title", "message"];
 	$json	= json_decode($request->getBody(), true);	
