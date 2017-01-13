@@ -1,11 +1,16 @@
 <?php
 
-$app->get("/comments/[{id}]", function($request, $response, $args) { // SHOW  ALL COMMENTS FROM THE ID ARTICLE IN A JSON OBJECT
-    if ((!isset($args["id"]))) {
-      $data	= ["error" => true, "message" => "ID is missing or it's not numeric.."];
-    } else {
+$app->post("/comments", function($request, $response, $args) { // SHOW  ALL COMMENTS FROM THE ID ARTICLE IN A JSON OBJECT
+  $error = false;
+  $form	= ["id"];
+  $json	= json_decode($request->getBody(), true);
+
+  $error = jsoncheck($form, $json);
+
+  if ($error == false)
       $comments    = [];
-      $query	= $this->db->query("SELECT * FROM comments WHERE article_id = '{$args["id"]}' ORDER BY date ASC;");
+      $article = htmlspecialchars($json["id"]);
+      $query	= $this->db->query("SELECT * FROM comments WHERE article_id = '$article' ORDER BY date ASC;");
       $fetch	= $query->fetchAll();
       for ($i = 0; $i < sizeof($fetch); $i++) {
         $comments[] = ["id" => $fetch[$i]["id"], "article_id" => $fetch[$i]["article_id"], "author" => $fetch[$i]["author"], "comment" => $fetch[$i]["comment"], "date" => $fetch[$i]["date"]];
@@ -20,11 +25,8 @@ $app->delete  ("/comments", function($request, $response, $args) { // DELETE THE
     $form	= ["id"];
     $json	= json_decode($request->getBody(), true);
 
-    foreach ($form as $key) {
-      if (!isset($json[$key])) {
-        $erreur	= true;
-      }
-    }
+    $error = jsoncheck($form, $json);
+
     if ($error == false) {
       $article = htmlspecialchars($json["id"]);
       $query	= $this->db->prepare("DELETE FROM comments WHERE id = $article");
@@ -36,18 +38,13 @@ $app->delete  ("/comments", function($request, $response, $args) { // DELETE THE
     }
 });
 
-$app->put("/comments", function($request, $response, $args) { // SHOW  ALL COMMENTS FROM THE ID ARTICLE IN A JSON OBJECT
+$app->patch("/comments", function($request, $response, $args) { // THIS ROUTE WILL ALLOW YOU TO MODIFY A COMMENT
     $error = false;
     $form	= ["author", "comment", "id"];
     $json	= json_decode($request->getBody(), true);
-    echo "\ntest";
-    var_dump($json);
-    foreach ($form as $key) {
-      if (!isset($json[$key])) {
-        $erreur	= true;
-      }
-      echo $json[$key];
-    }
+
+    $error = jsoncheck($form, $json);
+
     if ($erreur == false) {
       $comment = htmlspecialchars($json["comment"]);
       $author = htmlspecialchars($json["author"]);
@@ -56,8 +53,6 @@ $app->put("/comments", function($request, $response, $args) { // SHOW  ALL COMME
       $query->execute(["author" => $author, "comment" => $comment, "id" => $id]);
       if ($query == false)
         $error = true;
-      else {
-        $error = false;
       }
       $response->withHeader('Content-type', 'application/json');
       return $response->withJson(($error == false) ? ["error" => false, "message" => "The updating was succesfull"] : ["error" => true, "message" => "Error when updating the comment"], 200, JSON_PRETTY_PRINT);
@@ -66,16 +61,12 @@ $app->put("/comments", function($request, $response, $args) { // SHOW  ALL COMME
       return $response->withJson(["error" => true, "message" => "something went wrong in arguments"], 200, JSON_PRETTY_PRINT);
 });
 
-$app->post("/comments", function($request, $response) { // ADD A COMMENT WITH DATA FROM A JSON OBJECT
+$app->put("/comments", function($request, $response) { // ADD A COMMENT WITH DATA FROM A JSON OBJECT
   $erreur	= false;
   $form	= ["author", "article_id", "message"];
   $json	= json_decode($request->getBody(), true);
 
-  foreach ($form as $key) {
-    if (!isset($json[$key])) {
-      $erreur	= true;
-    }
-  }
+  $error = jsoncheck($form, $json);
 
   if ($erreur == false) {
 		$author		= htmlspecialchars($json["author"]);
