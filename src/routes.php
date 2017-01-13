@@ -1,20 +1,22 @@
 <?php
 // Routes
 
-/*
-	What can you do on here:
-        - Get all articles
-        - Delete an article by ID
-        - Update an article by ID
-        - Insert a new article from a json object. (Example: {"author": "Clément", "title": "Hello!", "message: "Hello world!"}
-        - Search an article informations. (title, message, author...)
-*/
+/**
+ * @desc : We will add all routes needed to make this blog working.
+ * @author: Jeremy, Clément, Julien
+ * @date: 01/13/2017
+ */
 
-$app->get('/', function ($request, $response, $args) { // BLOG'S INDEX
+$app->get('/', function ($request, $response, $args) {
     return $response->getBody()->write("Hello!");
 });
 
-$app->get("/articles", function($request, $response) { // SHOW  ALL ARTICLES IN A JSON OBJECT
+/**
+ * @desc : This route will allow you to get a json with all articles.
+ * @return : Json with all articles.
+ * @param : N/A
+ */
+$app->get("/articles", function($request, $response) {
     $article    = [];
     $query	    = $this->db->query("SELECT * FROM miniblog ORDER BY id DESC;");
     $fetch	    = $query->fetchAll();
@@ -25,11 +27,17 @@ $app->get("/articles", function($request, $response) { // SHOW  ALL ARTICLES IN 
     return $response->withJson(!empty($article) ? $article : ["error" => true, "message" => "Nothing found in database"], 200, JSON_PRETTY_PRINT);
 });
 
-$app->delete('/article/[{id}]', function($request, $response, $args) { // DELETE AN ARTICLE BY ID
-    if ((!isset($args["id"])) || (!is_numeric($args["id"]))) {
+/**
+ * @desc : This route will allow you to delete an article by the argument "id".
+ * @return : Returns a json with error on 'true/false' and a message.
+ * @param : The argument 'id' is required and must be a int in the JSON. (Example : 1)
+ */
+$app->delete('/article', function($request, $response, $args) {
+    $json   = json_decode($request->getBody(), true);
+    if ((!isset($json["id"])) || (!is_numeric($json["id"]))) {
         $data   = ["error" => true, "message" => "Argument id is missing or it's not numeric!"];
     } else {
-        $id     = $args["id"];
+        $id     = (int) $json["id"];
         $search = $this->db->query("SELECT id FROM miniblog WHERE id='{$id}'");
         $fetch  = $search->fetch();
         if (isset($fetch["id"])) {
@@ -43,12 +51,17 @@ $app->delete('/article/[{id}]', function($request, $response, $args) { // DELETE
     return $response->withJson($data, 200, JSON_PRETTY_PRINT);
 });
 
-$app->put('/article/[{id}]', function($request, $response, $args) { // UPDATE AN ARTICLE BY ID IF NUMERIC
-    $json       = json_decode($request->getBody(), true);
-    if (!is_numeric($args["id"])) {
+/**
+ * @desc : This route will allow you to update an article by the argument "id".
+ * @return : Returns a json with error on 'true/false' and a message.
+ * @param : The argument 'id' is required and must be a int. (Example : 1)
+ */
+$app->patch('/article', function($request, $response, $args) {
+    $json   = json_decode($request->getBody(), true);
+    if ((!isset($json["id"])) || (!is_numeric($json["id"]))) {
         $data = ["error" => true, "message" => "The id argument must be numeric."];
     } else {
-        $id         = $args["id"];
+        $id         = (int) $json["id"];
         $title      = isset($json["title"]) ? htmlspecialchars($json["title"]) : "";
         $message    = isset($json["message"]) ? htmlspecialchars($json["message"]) : "";
         $query      = $this->db->query("SELECT id FROM miniblog WHERE id='{$id}'");
@@ -65,18 +78,23 @@ $app->put('/article/[{id}]', function($request, $response, $args) { // UPDATE AN
 
 });
 
-$app->post('/article', function ($request, $response) { // SAVE A NEW ARTICLE FROM A JSON
-	$erreur	= false;
+/**
+ * @desc : This route will allow you to insert an article with a json object ONLY.
+ * @return : Returns a json with error on 'true/false' and a message.
+ * @param : A json with the argument 'Title', 'Message' and 'Author'.
+ */
+$app->put('/article', function ($request, $response) {
+	$error	= false;
 	$form	= ["author", "title", "message"];
 	$json	= json_decode($request->getBody(), true);	
 	
 	foreach ($form as $key) {
 		if (!isset($json[$key])) {
-			$erreur	= true;
+			$error	= true;
 		}
 	}	
 
-	if ($erreur == false) {
+	if ($error == false) {
 		$title		= htmlspecialchars($json["title"]);
 		$message	= htmlspecialchars($json["message"]);
 		$author 	= htmlspecialchars($json["author"]);
@@ -92,20 +110,21 @@ $app->post('/article', function ($request, $response) { // SAVE A NEW ARTICLE FR
 	return $response->withJson($data, 200, JSON_PRETTY_PRINT);
 });
 
-$app->get('/search/[{id}]', function ($request, $response, $args) { // CHERCHER UN ARTICLE PAR ID
-	if ((!isset($args["id"])) || (!is_numeric($args["id"]))) {
+/**
+ * @desc : This route will allow you to search an article informations.
+ * @return : Returns a json with error on 'true/false' and article informations.
+ * @param : The argument 'id' is required and must be a int. (Example : 1)
+ */
+$app->post('/search', function ($request, $response, $args) {
+    $json   = json_decode($request->getBody(), true);
+    if ((!isset($json["id"])) || (!is_numeric($json["id"]))) {
 		$data	= ["error" => true, "message" => "ID is missing or it's not numeric.."];
 	} else {
-		$query	= $this->db->query("SELECT * FROM miniblog WHERE id='{$args["id"]}'");
+        $id     = (int) $json["id"];
+		$query	= $this->db->query("SELECT * FROM miniblog WHERE id='{$id}'");
 		$fetch	= $query->fetch();
 		$data	= isset($fetch["author"]) ? ["error" => false, "id" => (int)$fetch["id"], "author" => $fetch["author"], "title" => $fetch["title"], "message" => $fetch["message"]] : ["error" => true, "message" => "Article not found"];
 	}
 	$response->withHeader('Content-type', 'application/json');
 	return $response->withJson($data, 200, JSON_PRETTY_PRINT);
-});
-
-$app->get('/search', function ($request, $response) {
-	$data	= ["error" => "id is missing or is not numeric"];
-    $response->withHeader('Content-type', 'application/json');
-    return $response->withJson($data, 200, JSON_PRETTY_PRINT);
 });
