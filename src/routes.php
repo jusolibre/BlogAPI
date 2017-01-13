@@ -2,9 +2,12 @@
 // Routes
 
 /*
-	Macros:
-		Set un status : $response->withStatus(STATUSCODE);
-		Recup post arg : $response->getParam(valeur);
+	What can you do on here:
+        - Get all articles
+        - Delete an article by ID
+        - Update an article by ID
+        - Insert a new article from a json object. (Example: {"author": "Clément", "title": "Hello!", "message: "Hello world!"}
+        - Search an article informations. (title, message, author...)
 */
 
 $app->get('/', function ($request, $response, $args) { // BLOG'S INDEX
