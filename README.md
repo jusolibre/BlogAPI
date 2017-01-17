@@ -1,9 +1,10 @@
-Welcome to our API REST github page.
+<h1>Welcome to our API REST github page.<br/></h1>
+
 This API was created using slim so we will give you <strong>examples using localhost and the port 8080</strong>, but you will be able to use it on the port you choose and with your database.
 
 Our API will allow you to access a blog from your own website.
 Using differents routes you will be able to :
-  - list the differents articles,
+  - <a href="#articles">list the differents articles</a>,
   - find a specific one,
   - add some article,
   - update the article,
@@ -20,7 +21,7 @@ So here are the differents routes :
 First you need to be able to send Json data, and receive response in Json.
 
 
-Then the first route is articles with a GET verb:
+<h2 id="articles">Then the first route is articles with a GET verb:</h2>
 ```
 localhost:8080/articles
 ```
@@ -57,3 +58,5 @@ So the next route is article with a PUT verb:
 localhost:8080/article
 ```
 With this route you can add a new article with the name of the article (title) and the content of the article (message).
+
+So now we will have a look at the comment section :
