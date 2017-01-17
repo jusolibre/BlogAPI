@@ -27,13 +27,12 @@ We also add a comment management so you can use differents routes like for artic
 <br>
 
 First you need to be able to send Json data, and receive response in Json.
-<br>
-
-<h3>ARTICLE :</h3>
 <br><br>
 
-<h4 style="font-size=180%;text-decoration: underline;" id="articles">GET articles :</h4>
+<h3>ARTICLE :</h3>
+<br>
 
+<h4 style="font-size=180%;text-decoration: underline;" id="articles">GET articles :</h4>
 <hr>
 ```
 localhost:8080/articles
@@ -79,7 +78,6 @@ This routes need no arguments.
 
 
 <h4 style="font-size=180%;text-decoration: underline;" id="GETarticle">GET article :</h4>
-<br>
 
 <em style="font-size:80%;">This route is a special one, you will need to send the id and as we are usiong a full Json communication, you will need to use a POST request, to be able to be able to send data in the body of your request, this request is the reason why you need to uncomment the line in your php.ini.
 We could get the argument in the url and use a GET request but, as we had to use a full Json communication, we choose to create this route instead.</em>
@@ -120,7 +118,6 @@ This route needs the ID of the article you are looking for.
 
 
 <h4 style="font-size=180%;text-decoration: underline;" id="DELETEarticle">DELETE article :</h4>
-<br>
 <hr>
 ```
 localhost:8080/article
@@ -214,8 +211,6 @@ So now we will have a look at the comment section :
 <br>
 
 <h4 style="font-size=180%;text-decoration: underline;" id="GETcomments">GET comments :</h4>
-<br>
-
 So the GET request of our API had to get the argument via Json data so we choose to use a POST request to get the comments and a PUT resquest to add a new comment, So to get all the comments from a specific article you will have to use a POST request :
 
 <hr>
