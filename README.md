@@ -21,7 +21,7 @@ So here are the differents routes :
 First you need to be able to send Json data, and receive response in Json.
 
 
-<h2 id="articles">Then the first route is articles with a GET verb :</h2>
+<h2 id="articles">GET articles :</h2>
 ```
 localhost:8080/articles
 ```
@@ -29,7 +29,7 @@ This routes need no arguments.
 
 
 
-<h2 id="GETarticle">So the next route is article with a GET verb :</h2>
+<h2 id="GETarticle">GET article :</h2>
 ```
 localhost:8080/article
 ```
@@ -37,7 +37,7 @@ This routes need the ID of the article you are looking for.
 
 
 
-<h2 id="DELETEarticle">So the next route is article with a DELETE verb :</h2>
+<h2 id="DELETEarticle">DELETE article :</h2>
 ```
 localhost:8080/article
 ```
@@ -45,17 +45,30 @@ This routes need the ID of the article you want to delete.
 
 
 
-<h2 id="PATCHarticle">So the next route is article with a PATCH verb :</h2>
+<h2 id="PATCHarticle">PATCH article :</h2>
 ```
 localhost:8080/article
+
+
+Response :
+  {
+    error: false, //will be true if you get an error
+    message: Succes //will contain the message corresponding to you error if you get one.
+  }
 ```
 With this route you can modify the name of the article (title) and the content of the article (message).
 
 
 
-<h2 id="PUTarticle">So the next route is article with a PUT verb :</h2>
+<h2 id="PUTarticle">PUT article :</h2>
 ```
 localhost:8080/article
+
+Response :
+  {
+    error: false, //will be true if you get an error
+    message: Succes //will contain the message corresponding to you error if you get one.
+  }
 ```
 With this route you can add a new article with the name of the article (title) and the content of the article (message).
 
