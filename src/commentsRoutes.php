@@ -50,19 +50,20 @@ $app->delete("/comment", function($request, $response) {
  */
 $app->patch("/comment", function($request, $response) {
     $error  = false;
-    $form	= ["author", "comment", "id"];
+    $form	= ["id"];
     $json	= json_decode($request->getBody(), true);
     $error  = checkJson($form, $json);
 
-    if ($error == false) {
-        $comment    = htmlspecialchars($json["comment"]);
-        $author     = htmlspecialchars($json["author"]);
-        $id         = htmlspecialchars($json["id"]);
-
-      if (!$error) {
-         $data  = Comments::selectById($id);
-         $data  = isset($data["id"]) ? Comments::updateById($author, $comment, $id) : ["error" => true, "message" => "comment not found"];
-      }
+    if (!$error) {
+        $id    = htmlspecialchars($json["id"]);
+        $data  = Comments::selectById($id);
+        if (isset($data["id"])) {
+            $comment    = isset($json["comment"]) ? htmlspecialchars($json["comment"]) : $data["comment"];
+            $author     = isset($json["author"]) ? htmlspecialchars($json["author"]) : $data["author"];
+            $data       = Comments::updateById($author, $comment, $id);
+        } else {
+            $data   = ["error" => true, "message" => "comment not found"];
+        }
     } else {
         $data   = ["error" => true, "message" => "Something goes wrong. Did you sent all required arguments?"];
     }
