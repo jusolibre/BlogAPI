@@ -187,6 +187,23 @@ Json Response :
 ```
 localhost:8080/comment
 ["id", "author", "article_id", "comment"]
+// here are the argument that MUST be present in you Json object
+```
+Json Response :
+```
+  {
+    error: false, //will be true if you get an error
+    message: "Success" //will contain the message corresponding to you error if you get one.
+  }
+  ```
+So this route will made you able to add a comment using his id.
+
+
+
+<h3 style="font-size=120%" id="PATCHcomment">PATCH comment :</h3>
+```
+localhost:8080/comment
+["id", "author", "article_id", "comment"]
 // here is the argument that CAN be present in the Json object of your resquest
 // The id must be present
 ```
