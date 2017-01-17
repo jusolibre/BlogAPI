@@ -86,13 +86,15 @@ In case of error :
   "message": "Error msg"
 }
 ```
-This routes need the ID of the article you are looking for.
+This route needs the ID of the article you are looking for.
 
 
 
 <h2 id="DELETEarticle">DELETE article :</h2>
 ```
 localhost:8080/article
+["id"] // here is the argument that MUST be present in the Json object of your resquest
+
 ```
 
 In case of success :
@@ -110,13 +112,14 @@ In case of error :
   "message": "Error msg"
 }
 ```
-This routes need the ID of the article you want to delete.
+This route needs the ID of the article you want to delete.
 
 
 
 <h2 id="PATCHarticle">PATCH article :</h2>
 ```
 localhost:8080/article
+["title", "message"] // here is the argument that CAN be present in the Json object of your resquest
 
 ```
 In case of success :
@@ -141,7 +144,7 @@ With this route you can modify the name of the article (title) and the content o
 <h2 id="PUTarticle">PUT article :</h2>
 ```
 localhost:8080/article
-
+["title", "message", "author"] // here is the argument that MUST be present in the Json object of your resquest
 ```
 Json Response :
 ```
