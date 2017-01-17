@@ -6,21 +6,21 @@ This API was created using slim so we will give you <strong>examples using local
 <h5 style="font-size:120%;">YOU WILL NEED TO UNCOMMENT THE LINE always_populate_raw_post_data = -1 IN YOUR PHP.INI FILE </h5>
 
 <p>
-Our API will allow you to access a blog from your own website.
-Using differents routes you will be able to :
-  - <a href="#articles">list the differents articles</a>,
-  - <a href="#GETarticle">get a specific one</a>,
-  - <a href="#PUTarticle">add some article</a>,
-  - <a href="#PATCHarticle">update the article</a>,
-  - <a href="#DELETEarticle">and finally delete article one by one</a>.
+Our API will allow you to access a blog from your own website.<br>
+Using differents routes you will be able to :<br>
+  - <a href="#articles">list the differents articles</a>,<br>
+  - <a href="#GETarticle">get a specific one</a>,<br>
+  - <a href="#PUTarticle">add some article</a>,<br>
+  - <a href="#PATCHarticle">update the article</a>,<br>
+  - <a href="#DELETEarticle">and finally delete article one by one</a>.<br>
 </p>
 
 <p>
-We also add a comment management so you can use differents routes like for articles :
-  - <a href="#GETcomments">list the comments on a specific article</a>,
-  - <a href="#PUTcomment">add a comment</a>,
-  - <a href="#PATCHcomment">modify a comment</a>,
-  - <a href="#DELETEcomment">and finally delete a comment</a>.
+We also add a comment management so you can use differents routes like for articles :<br>
+  - <a href="#GETcomments">list the comments on a specific article</a>,<br>
+  - <a href="#PUTcomment">add a comment</a>,<br>
+  - <a href="#PATCHcomment">modify a comment</a>,<br>
+  - <a href="#DELETEcomment">and finally delete a comment</a>.<br>
 </p>
 
 <h2>So here are the differents routes :</h2>
@@ -37,37 +37,37 @@ localhost:8080/articles
 <hr>
 
 <p>
-The Json response will look like (in case of success):
-```
-[
-  {
-    "id": "id",
-    "title": "title",
-    "message": "article content",
-    "author": "author",
-    "category": "category",
-    "date": "YYYY-MM-DD"
-  },
-  {
-    "id": "id",
-    "title": "title",
-    "message": "article content2",
-    "author": "author",
-    "category": "category",
-    "date": "YYYY-MM-DD"
-  }
-]
-```
+The Json response will look like (in case of success):<br>
+```<br>
+[<br>
+  {<br>
+    "id": "id",<br>
+    "title": "title",<br>
+    "message": "article content",<br>
+    "author": "author",<br>
+    "category": "category",<br>
+    "date": "YYYY-MM-DD"<br>
+  },<br>
+  {<br>
+    "id": "id",<br>
+    "title": "title",<br>
+    "message": "article content2",<br>
+    "author": "author",<br>
+    "category": "category",<br>
+    "date": "YYYY-MM-DD"<br>
+  }<br>
+]<br>
+```<br>
 </p>
 
 <p>
-And in case of fail, or if there is nothing in the database :
-```
-{
-  "error": true,
-  "message": "Not article in database"
-}
-```
+And in case of fail, or if there is nothing in the database :<br>
+```<br>
+{<br>
+  "error": true,<br>
+  "message": "Not article in database"<br>
+}<br>
+```<br>
 </p>
 
 <p>This routes need no arguments.</p>
@@ -88,27 +88,27 @@ localhost:8080/search
 <hr>
 
 <p>
-In case of success :
-```
-{
-  "id": "id",
-  "title": "title",
-  "message": "content of the article",
-  "author": "author",
-  "category": "category",
-  "date": "YYYY-MM-DD"
-}
-```
+In case of success :<br>
+```<br>
+{<br>
+  "id": "id",<br>
+  "title": "title",<br>
+  "message": "content of the article",<br>
+  "author": "author",<br>
+  "category": "category",<br>
+  "date": "YYYY-MM-DD"<br>
+}<br>
+```<br>
 </p>
 
 <p>
-In case of error :
-```
-{
-  "error": true,
-  "message": "Error msg"
-}
-```
+In case of error :<br>
+```<br>
+{<br>
+  "error": true,<br>
+  "message": "Error msg"<br>
+}<br>
+```<br>
 </p>
 
 <p>This route needs the ID of the article you are looking for.</p>
@@ -127,23 +127,23 @@ localhost:8080/article
 <hr>
 
 <p>
-In case of success :
-```
-{
-  "error": false,
-  "message": "Article has been deleted!"
-}
-```
+In case of success :<br>
+```<br>
+{<br>
+  "error": false,<br>
+  "message": "Article has been deleted!"<br>
+}<br>
+```<br>
 </p>
 
 <p>
-In case of error :
-```
-{
-  "error": true,
-  "message": "Error msg"
-}
-```
+In case of error :<br>
+```<br>
+{<br>
+  "error": true,<br>
+  "message": "Error msg"<br>
+}<br>
+```<br>
 </p>
 
 <p>This route needs the ID of the article you want to delete.</p>
@@ -163,23 +163,23 @@ localhost:8080/article
 <hr>
 
 <p>
-In case of success :
-```
-{
-  "error": false,
-  "message": "Article has been updated!"
-}
-```
+In case of success :<br>
+```<br>
+{<br>
+  "error": false,<br>
+  "message": "Article has been updated!"<br>
+}<br>
+```<br>
 </p>
 
 <p>
-In case of error :
-```
-{
-  "error": true,
-  "message": "Error msg"
-}
-```
+In case of error :<br>
+```<br>
+{<br>
+  "error": true,<br>
+  "message": "Error msg"<br>
+}<br>
+```<br>
 </p>
 
 <p>With this route you can modify the name of the article (title) and the content of the article (message).</p>
@@ -197,13 +197,13 @@ localhost:8080/article
 <hr>
 
 <p>
-Json Response :
-```
-  {
-    error: false, //will be true if you get an error
-    message: "Success" //will contain the message corresponding to you error if you get one.
-  }
-```
+Json Response :<br>
+```<br>
+  {<br>
+    error: false, //will be true if you get an error<br>
+    message: "Success" //will contain the message corresponding to you error if you get one.<br>
+  }<br>
+```<br>
 </p>
 
 <p>With this route you can add a new article with the name of the article (title) and the content of the article (message).</p>
@@ -227,13 +227,13 @@ localhost:8080/comments
 <hr>
 
 <p>
-Json Response :
-```
-  {
-    error: false, //will be true if you get an error
-    message: "Success" //will contain the message corresponding to you error if you get one.
-  }
-```
+Json Response :<br>
+```<br>
+  {<br>
+    error: false, //will be true if you get an error<br>
+    message: "Success" //will contain the message corresponding to you error if you get one.<br>
+  }<br>
+```<br>
 </p>
 
 
@@ -249,13 +249,13 @@ localhost:8080/comment
 <hr>
 
 <p>
-Json Response :
-```
-  {
-    error: false, //will be true if you get an error
-    message: "Success" //will contain the message corresponding to you error if you get one.
-  }
-```
+Json Response :<br>
+```<br>
+  {<br>
+    error: false, //will be true if you get an error<br>
+    message: "Success" //will contain the message corresponding to you error if you get one.<br>
+  }<br>
+```<br>
 </p>
 
 <p>So this route will made you able to add a comment using his id.</p>
@@ -274,13 +274,13 @@ localhost:8080/comment
 <hr>
 
 <p>
-Json Response :
-```
-  {
-    error: false, //will be true if you get an error
-    message: "Success" //will contain the message corresponding to you error if you get one.
-  }
-```
+Json Response :<br>
+```<br>
+  {<br>
+    error: false, //will be true if you get an error<br>
+    message: "Success" //will contain the message corresponding to you error if you get one.<br>
+  }<br>
+```<br>
 </p>
 
 <p>So this route will made you able to update a comment using his id.</p>
@@ -299,13 +299,13 @@ localhost:8080/comment
 <hr>
 
 <p>
-Json Response :
-```
-  {
-    error: false, //will be true if you get an error
-    message: "Success" //will contain the message corresponding to you error if you get one.
-  }
-```
+Json Response :<br>
+```<br>
+  {<br>
+    error: false, //will be true if you get an error<br>
+    message: "Success" //will contain the message corresponding to you error if you get one.<br>
+  }<br>
+```<br>
 </p>
 
 <p>So this route will made you able to update a comment using his id.</p>
