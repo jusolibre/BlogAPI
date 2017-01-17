@@ -12,10 +12,10 @@ Using differents routes you will be able to :
   - <a href="#DELETEarticle">and finally delete article one by one</a>.
 
 We also add a comment management so you can use differents routes like for articles :
-  - list the comments on a specific article,
-  - add a comment,
-  - modify a comment,
-  - and finally delete a comment.
+  - <a href="#">list the comments on a specific article</a>,
+  - <a href="#">add a comment</a>,
+  - <a href="#">modify a comment</a>,
+  - <a href="#">and finally delete a comment</a>.
 
 So here are the differents routes :
 
@@ -25,6 +25,27 @@ First you need to be able to send Json data, and receive response in Json.
 <h2 id="articles">GET articles :</h2>
 ```
 localhost:8080/articles
+```
+The Json response will look like :
+```
+[
+  {
+    "id": "id",
+    "title": "title",
+    "message": "article content",
+    "author": "author",
+    "category": "category",
+    "date": "YYYY-MM-DD"
+  },
+  {
+    "id": "id",
+    "title": "title",
+    "message": "article content2",
+    "author": "author",
+    "category": "category",
+    "date": "YYYY-MM-DD"
+  }
+]
 ```
 This routes need no arguments.
 
