@@ -18,7 +18,6 @@ $app->get('/', function ($request, $response, $args) {
  */
 $app->get("/articles", function($request, $response) { // SHOW  ALL ARTICLES IN A JSON OBJECT
     $data = Articles::select();
-
     $response->withHeader('Content-type', 'application/json');
     return $response->withJson($data, 200, JSON_PRETTY_PRINT);
 });
@@ -30,19 +29,12 @@ $app->get("/articles", function($request, $response) { // SHOW  ALL ARTICLES IN 
  */
 $app->delete('/article', function($request, $response, $args) {
     $json   = json_decode($request->getBody(), true);
-
     if ((!isset($json["id"])) || (!is_numeric($json["id"]))) {
         $data = ["error" => true, "message" => "Argument id is missing or it's not numeric!"];
-    }
-
-    else {
+    } else {
         $id = (int) $json["id"];
-        $data = Articles::selectById($id);
-        if (isset($data["id"])) {
-           $data = Articles::deleteById($id);
-        } else {
-            $data = ["error" => true, "message" => "Article not found"];
-        }
+        $data   = Articles::selectById($id);
+        $data   = isset($data["id"]) ? Articles::deleteById($id) : ["error" => true, "message" => "Article not found"];
     }
     $response->withHeader('Content-type', 'application/json');
     return $response->withJson($data, 200, JSON_PRETTY_PRINT);
@@ -61,14 +53,8 @@ $app->patch('/article', function($request, $response, $args) {
         $id         = (int) $json["id"];
         $title      = isset($json["title"]) ? htmlspecialchars($json["title"]) : "";
         $message    = isset($json["message"]) ? htmlspecialchars($json["message"]) : "";
-
-        $data = Articles::selectById($id);
-
-        if (isset($data["id"])) {
-            $data   = Articles::updateById($id, $title, $message);
-        } else {
-            $data   = ["error" => true, "message" => "Article not found"];
-        }
+        $data       = Articles::selectById($id);
+        $data       = isset($data["id"]) ? Articles::updateById($id, $title, $message) : ["error" => true, "message" => "Article not found"];
     }
     $response->withHeader('Content-type', 'application/json');
     return $response->withJson($data, 200, JSON_PRETTY_PRINT);
@@ -76,18 +62,15 @@ $app->patch('/article', function($request, $response, $args) {
 });
 
 $app->post('/search', function ($request, $response, $args) { // SEARCH AN ARTICLE BY ID
-
     $json   = json_decode($request->getBody(), true);
     if ((!isset($json["id"])) || (!is_numeric($json["id"]))) {
         $data	= ["error" => true, "message" => "ID is missing or it's not numeric.."];
     } else {
-
         $id     = (int) $json["id"];
-        $data = Articles::selectById($id);
-
-        $response->withHeader('Content-type', 'application/json');
-        return $response->withJson($data, 200, JSON_PRETTY_PRINT);
-   }
+        $data   = Articles::selectById($id);
+    }
+    $response->withHeader('Content-type', 'application/json');
+    return $response->withJson($data, 200, JSON_PRETTY_PRINT);
 });
 
 /**
@@ -98,17 +81,14 @@ $app->post('/search', function ($request, $response, $args) { // SEARCH AN ARTIC
 $app->put('/article', function ($request, $response) { // SAVE A NEW ARTICLE FROM A JSON
 	$error	= false;
 	$form	= ["title", "message", "author"];
-	$json	= json_decode($request->getBody(), true);	
-	
-	$error = checkJson($form, $json);
+	$json	= json_decode($request->getBody(), true);
+	$error  = checkJson($form, $json);
 
 	if ($error == false) {
 		$title		= htmlspecialchars($json["title"]);
 		$message	= htmlspecialchars($json["message"]);
 		$author 	= htmlspecialchars($json["author"]);
-		
-        $data = Articles::insert($title, $message, $author);
-
+        $data       = Articles::insert($title, $message, $author);
 	} else {		
 		$data = ["error" => true, "message" => "Missing arguments in your JSON."];
 	}
