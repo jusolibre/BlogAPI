@@ -21,8 +21,9 @@ So here are the differents routes :
 
 First you need to be able to send Json data, and receive response in Json.
 
+<h2>ARTICLE :</h2>
 
-<h2 id="articles">GET articles :</h2>
+<h3 id="articles">GET articles :</h3>
 ```
 localhost:8080/articles
 ```
@@ -58,7 +59,7 @@ This routes need no arguments.
 
 
 
-<h2 id="GETarticle">GET article :</h2>
+<h3 id="GETarticle">GET article :</h3>
 
 <em style="font-size:80%;">This route is a special one, you will need to send the id and as we are usiong a full Json communication, you will need to use a POST request, to be able to be able to send data in the body of your request, this request is the reason why you need to uncomment the line in your php.ini.
 We could get the argument in the url and use a GET request but, as we had to use a full Json communication, we choose to create this route instead.</em>
@@ -90,7 +91,7 @@ This route needs the ID of the article you are looking for.
 
 
 
-<h2 id="DELETEarticle">DELETE article :</h2>
+<h3 id="DELETEarticle">DELETE article :</h3>
 ```
 localhost:8080/article
 ["id"] // here is the argument that MUST be present in the Json object of your resquest
@@ -116,10 +117,10 @@ This route needs the ID of the article you want to delete.
 
 
 
-<h2 id="PATCHarticle">PATCH article :</h2>
+<h3 id="PATCHarticle">PATCH article :</h3>
 ```
 localhost:8080/article
-["title", "message"] // here is the argument that CAN be present in the Json object of your resquest
+["title", "message"] // here is the argument that CAN be present in the Json object
 
 ```
 In case of success :
@@ -141,10 +142,10 @@ With this route you can modify the name of the article (title) and the content o
 
 
 
-<h2 id="PUTarticle">PUT article :</h2>
+<h3 id="PUTarticle">PUT article :</h3>
 ```
 localhost:8080/article
-["title", "message", "author"] // here is the argument that MUST be present in the Json object of your resquest
+["title", "message", "author"] // here is the argument that MUST be present in the Json
 ```
 Json Response :
 ```
@@ -154,5 +155,7 @@ Json Response :
   }
 ```
 With this route you can add a new article with the name of the article (title) and the content of the article (message).
+
+<h2>COMMENTS :</h2>
 
 So now we will have a look at the comment section :
