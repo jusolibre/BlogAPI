@@ -1,7 +1,7 @@
 <h1>Welcome to our API REST github page.</h1>
 <br><br>
 
-This API was created using slim so we will give you <strong>examples using localhost and the port 8080</strong>, but you will be able to use it on the port you choose and with your database.
+This API was created using slim so we will give you <strong>examples using localhost and the port 8080</strong>, but you will be able to use it on the port you have chosen and with your database.
 <br>
 
 <h5 style="font-size:140%;">YOU WILL NEED TO UNCOMMENT THE LINE <em>always_populate_raw_post_data = -1</em> IN YOUR PHP.INI FILE </h5>
@@ -73,14 +73,14 @@ And in case of fail, or if there is nothing in the database :
 ```
 <br>
 
-This routes need no arguments.
+This route needs no arguments.
 <br><br><br>
 
 
 <h4 style="font-size=180%;text-decoration: underline;" id="GETarticle">GET article :</h4><hr>
 
-<em style="font-size:80%;">This route is a special one, you will need to send the id and as we are usiong a full Json communication, you will need to use a POST request, to be able to be able to send data in the body of your request, this request is the reason why you need to uncomment the line in your php.ini.
-We could get the argument in the url and use a GET request but, as we had to use a full Json communication, we choose to create this route instead.</em>
+<em style="font-size:80%;">This route is a special one, you will need to send the id and as we are using a full Json communication, you will need to use a POST request, to be able to send data in the body of your request, this request is the reason why you need to uncomment the line in your php.ini.
+We could get the argument in the url and use a GET request but, as we had to use a full Json communication, we have chosen to create this route instead.</em>
 <br>
 
 
