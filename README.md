@@ -49,12 +49,17 @@ This routes need the ID of the article you want to delete.
 ```
 localhost:8080/article
 
+// In case of succes
+{
+  "error": false,
+  "message": "Article has been updated!"
+}
 
-Response :
-  {
-    error: false, //will be true if you get an error
-    message: Succes //will contain the message corresponding to you error if you get one.
-  }
+// In case of error
+{
+  "error": true,
+  "message": "Error msg"
+}
 ```
 With this route you can modify the name of the article (title) and the content of the article (message).
 
@@ -64,10 +69,10 @@ With this route you can modify the name of the article (title) and the content o
 ```
 localhost:8080/article
 
-Response :
+// Response :
   {
     error: false, //will be true if you get an error
-    message: Succes //will contain the message corresponding to you error if you get one.
+    message: "Success" //will contain the message corresponding to you error if you get one.
   }
 ```
 With this route you can add a new article with the name of the article (title) and the content of the article (message).
