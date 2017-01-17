@@ -87,7 +87,7 @@ $app->put('/article', function ($request, $response) { // SAVE A NEW ARTICLE FRO
 		$title		= htmlspecialchars($json["title"]);
 		$message	= htmlspecialchars($json["message"]);
 		$author 	= htmlspecialchars($json["author"]);
-        $data       = Articles::insert($title, $message, $author);
+        	$data       	= Articles::insert($title, $message, $author);
 	} else {		
 		$data = ["error" => true, "message" => "Missing arguments in your JSON."];
 	}
