@@ -32,12 +32,12 @@ First you need to be able to send Json data, and receive response in Json.
 <h3>ARTICLE :</h3>
 <br>
 
-<h4 style="font-size=180%;text-decoration: underline;" id="articles">GET articles :</h4>
-<hr>
+<h4 style="font-size=180%;text-decoration: underline;" id="articles">GET articles :</h4><hr>
+
 ```
 localhost:8080/articles
 ```
-<hr>
+
 
 
 The Json response will look like (in case of success):
@@ -77,19 +77,19 @@ This routes need no arguments.
 <br><br><br>
 
 
-<h4 style="font-size=180%;text-decoration: underline;" id="GETarticle">GET article :</h4>
+<h4 style="font-size=180%;text-decoration: underline;" id="GETarticle">GET article :</h4><hr>
 
 <em style="font-size:80%;">This route is a special one, you will need to send the id and as we are usiong a full Json communication, you will need to use a POST request, to be able to be able to send data in the body of your request, this request is the reason why you need to uncomment the line in your php.ini.
 We could get the argument in the url and use a GET request but, as we had to use a full Json communication, we choose to create this route instead.</em>
 <br>
 
-<hr>
+
 ```
 localhost:8080/search
 ["id"]
 // here is the argument that MUST be present in the Json object of your resquest
 ```
-<hr>
+
 
 In case of success :
 ```
@@ -117,15 +117,15 @@ This route needs the ID of the article you are looking for.
 <br><br><br>
 
 
-<h4 style="font-size=180%;text-decoration: underline;" id="DELETEarticle">DELETE article :</h4>
-<hr>
+<h4 style="font-size=180%;text-decoration: underline;" id="DELETEarticle">DELETE article :</h4><hr>
+
 ```
 localhost:8080/article
 ["id"]
 // here is the argument that MUST be present in the Json object of your resquest
 
 ```
-<hr>
+
 
 In case of success :
 ```
@@ -150,8 +150,8 @@ This route needs the ID of the article you want to delete.
 <br><br><br>
 
 
-<h4 style="font-size=180%;text-decoration: underline;" id="PATCHarticle">PATCH article :</h4>
-<hr>
+<h4 style="font-size=180%;text-decoration: underline;" id="PATCHarticle">PATCH article :</h4><hr>
+
 ```
 localhost:8080/article
 ["id", "title", "message"]
@@ -159,7 +159,7 @@ localhost:8080/article
 // The id must be present
 
 ```
-<hr>
+
 
 In case of success :
 ```
@@ -184,14 +184,14 @@ With this route you can modify the name of the article (title) and the content o
 <br><br><br>
 
 
-<h4 style="font-size=180%;text-decoration: underline;" id="PUTarticle">PUT article :</h4>
-<hr>
+<h4 style="font-size=180%;text-decoration: underline;" id="PUTarticle">PUT article :</h4><hr>
+
 ```
 localhost:8080/article
 ["title", "message", "author"]
 // here is the argument that MUST be present in the Json object of your resquest
 ```
-<hr>
+
 
 Json Response :
 ```
@@ -210,16 +210,16 @@ With this route you can add a new article with the name of the article (title) a
 So now we will have a look at the comment section :
 <br>
 
-<h4 style="font-size=180%;text-decoration: underline;" id="GETcomments">GET comments :</h4>
+<h4 style="font-size=180%;text-decoration: underline;" id="GETcomments">GET comments :</h4><hr>
 So the GET request of our API had to get the argument via Json data so we choose to use a POST request to get the comments and a PUT resquest to add a new comment, So to get all the comments from a specific article you will have to use a POST request :
 
-<hr>
+
 ```
 localhost:8080/comments
 ["id"]
 // here is the argument that MUST be present in the Json object of your resquest
 ```
-<hr>
+
 
 Json Response :
 ```
@@ -231,14 +231,14 @@ Json Response :
 <br><br><br>
 
 
-<h4 style="font-size=180%;text-decoration: underline;" id="PUTcomment">PUT comment :</h4>
-<hr>
+<h4 style="font-size=180%;text-decoration: underline;" id="PUTcomment">PUT comment :</h4><hr>
+
 ```
 localhost:8080/comment
 ["id", "author", "article_id", "comment"]
 // here are the argument that MUST be present in you Json object
 ```
-<hr>
+
 
 Json Response :
 ```
@@ -253,15 +253,15 @@ So this route will made you able to add a comment using his id.
 <br><br><br>
 
 
-<h4 style="font-size=180%;text-decoration: underline;" id="PATCHcomment">PATCH comment :</h4>
-<hr>
+<h4 style="font-size=180%;text-decoration: underline;" id="PATCHcomment">PATCH comment :</h4><hr>
+
 ```
 localhost:8080/comment
 ["id", "author", "article_id", "comment"]
 // here is the argument that CAN be present in the Json object of your resquest
 // The id must be present
 ```
-<hr>
+
 
 Json Response :
 ```
@@ -276,15 +276,15 @@ So this route will made you able to update a comment using his id.
 <br><br><br>
 
 
-<h4 style="font-size=180%;text-decoration: underline;" id="DELETEcomment">DELETE comment :</h4>
-<hr>
+<h4 style="font-size=180%;text-decoration: underline;" id="DELETEcomment">DELETE comment :</h4><hr>
+
 ```
 localhost:8080/comment
 ["id"]
 // here is the argument that MUST be present in the Json object of your resquest
 // The id must be present
 ```
-<hr>
+
 
 Json Response :
 ```
