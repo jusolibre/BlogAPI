@@ -1,7 +1,7 @@
 <h1>Welcome to our API REST github page.</h1>
 
 This API was created using slim so we will give you <strong>examples using localhost and the port 8080</strong>, but you will be able to use it on the port you choose and with your database.
-<h3>YOU WILL NEED TO UNCOMMENT THE LINE always_populate_raw_post_data = -1 IN YOUR PHP.INI FILE </h3>
+<h5 style="font-size:120%;color:grey;">YOU WILL NEED TO UNCOMMENT THE LINE always_populate_raw_post_data = -1 IN YOUR PHP.INI FILE </h5>
 
 Our API will allow you to access a blog from your own website.
 Using differents routes you will be able to :
@@ -32,7 +32,7 @@ This routes need no arguments.
 
 <h2 id="GETarticle">GET article :</h2>
 
-<em>This route is a special one, you will need to send the id and as we are usiong a full Json communication, you will need to use a POST request, to be able to be able to send data in the body of your request, this request is the reason why you need to uncomment the line in your php.ini.
+<em style="font-size:80%;color:grey;">This route is a special one, you will need to send the id and as we are usiong a full Json communication, you will need to use a POST request, to be able to be able to send data in the body of your request, this request is the reason why you need to uncomment the line in your php.ini.
 We could get the argument in the url and use a GET request but, as we had to use a full Json communication, we choose to create this route instead.</em>
 
 ```
