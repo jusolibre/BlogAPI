@@ -49,13 +49,17 @@ This routes need the ID of the article you want to delete.
 ```
 localhost:8080/article
 
-// In case of succes
+```
+In case of success :
+```
 {
   "error": false,
   "message": "Article has been updated!"
 }
+```
 
-// In case of error
+In case of error :
+```
 {
   "error": true,
   "message": "Error msg"
@@ -69,7 +73,9 @@ With this route you can modify the name of the article (title) and the content o
 ```
 localhost:8080/article
 
-// Response :
+```
+Json Response :
+```
   {
     error: false, //will be true if you get an error
     message: "Success" //will contain the message corresponding to you error if you get one.
