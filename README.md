@@ -1,6 +1,7 @@
 <h1>Welcome to our API REST github page.</h1>
 
 This API was created using slim so we will give you <strong>examples using localhost and the port 8080</strong>, but you will be able to use it on the port you choose and with your database.
+<h3>YOU WILL NEED TO UNCOMMENT THE LINE always_populate_raw_post_data = -1 IN YOUR PHP.INI FILE </h3>
 
 Our API will allow you to access a blog from your own website.
 Using differents routes you will be able to :
@@ -33,6 +34,22 @@ This routes need no arguments.
 ```
 localhost:8080/article
 ```
+
+In case of success :
+```
+{
+  "error": false,
+  "message": "Article has been deleted!"
+}
+```
+
+In case of error :
+```
+{"error": true,
+  "message": "Error msg"
+  
+}
+```
 This routes need the ID of the article you are looking for.
 
 
@@ -40,6 +57,22 @@ This routes need the ID of the article you are looking for.
 <h2 id="DELETEarticle">DELETE article :</h2>
 ```
 localhost:8080/article
+```
+
+In case of success :
+```
+{
+  "error": false,
+  "message": "Article has been deleted!"
+}
+```
+
+In case of error :
+```
+{"error": true,
+  "message": "Error msg"
+  
+}
 ```
 This routes need the ID of the article you want to delete.
 
