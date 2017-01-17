@@ -31,15 +31,23 @@ This routes need no arguments.
 
 
 <h2 id="GETarticle">GET article :</h2>
+
+<em>This route is a special one, you will need to send the id and as we are usiong a full Json communication, you will need to use a POST request, to be able to be able to send data in the body of your request, this request is the reason why you need to uncomment the line in your php.ini.
+We could get the argument in the url and use a GET request but, as we had to use a full Json communication, we choose to create this route instead.</em>
+
 ```
-localhost:8080/article
+localhost:8080/search
 ```
 
 In case of success :
 ```
 {
-  "error": false,
-  "message": "Article has been deleted!"
+  "id": "id",
+  "title": "title",
+  "message": "content of the article",
+  "author": "author",
+  "category": "category",
+  "date": "YYYY-MM-DD"
 }
 ```
 
