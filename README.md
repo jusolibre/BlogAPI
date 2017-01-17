@@ -53,9 +53,9 @@ In case of success :
 
 In case of error :
 ```
-{"error": true,
+{
+  "error": true,
   "message": "Error msg"
-  
 }
 ```
 This routes need the ID of the article you are looking for.
@@ -77,9 +77,9 @@ In case of success :
 
 In case of error :
 ```
-{"error": true,
+{
+  "error": true,
   "message": "Error msg"
-  
 }
 ```
 This routes need the ID of the article you want to delete.
