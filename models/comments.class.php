@@ -26,6 +26,12 @@ class Comments {
         return $data;
     }
 
+    public static function deleteComments ($article_id) {
+        $delete = DataBase::bdd()->query("DELETE FROM comments WHERE article_id = $article_id");
+        $data   = ["error" => false, "message" => "Comments had been deleted!"];
+        return $data;
+    }
+
     public static function updateById ($author, $comment, $id) {
         $update = DataBase::bdd()->query("UPDATE comments SET author='{$author}', comment='{$comment}' WHERE id='{$id}'");
         $data   = ["error" => false, "message" => "Comment has been updated!"];
