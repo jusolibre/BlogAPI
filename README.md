@@ -29,7 +29,7 @@ We also add a comment management so you can use differents routes like for artic
 First you need to be able to send Json data, and receive response in Json.
 <br><br>
 
-<h3>ARTICLE :</h3>
+<h3 style="font-size:200%;">ARTICLE :</h3>
 <br>
 
 <h4 style="font-size=180%;text-decoration: underline;" id="articles">GET articles :</h4><hr>
@@ -205,7 +205,7 @@ Json Response :
 With this route you can add a new article with the name of the article (title) and the content of the article (message).
 <br><br><br>
 
-<h3>COMMENTS :</h3>
+<h3 style="font-size:200%;">COMMENTS :</h3>
 <br>
 So now we will have a look at the comment section :
 <br>
