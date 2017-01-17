@@ -4,7 +4,7 @@
 This API was created using slim so we will give you <strong>examples using localhost and the port 8080</strong>, but you will be able to use it on the port you choose and with your database.
 <br>
 
-<h5 style="font-size:120%;">YOU WILL NEED TO UNCOMMENT THE LINE always_populate_raw_post_data = -1 IN YOUR PHP.INI FILE </h5>
+<h5 style="font-size:120%;">YOU WILL NEED TO UNCOMMENT THE LINE <em>always_populate_raw_post_data = -1</em> IN YOUR PHP.INI FILE </h5>
 <br>
 
 Our API will allow you to access a blog from your own website.
@@ -33,13 +33,12 @@ First you need to be able to send Json data, and receive response in Json.
 <br><br>
 
 <h4 style="font-size=120%" id="articles">GET articles :</h4>
-<br>
+
 <hr>
 ```
 localhost:8080/articles
 ```
 <hr>
-<br><br>
 
 
 The Json response will look like (in case of success):
@@ -93,7 +92,6 @@ localhost:8080/search
 // here is the argument that MUST be present in the Json object of your resquest
 ```
 <hr>
-<br><br>
 
 In case of success :
 ```
@@ -157,7 +155,6 @@ This route needs the ID of the article you want to delete.
 
 
 <h4 style="font-size=120%" id="PATCHarticle">PATCH article :</h4>
-<br>
 <hr>
 ```
 localhost:8080/article
@@ -167,7 +164,6 @@ localhost:8080/article
 
 ```
 <hr>
-<br>
 
 In case of success :
 ```
@@ -193,7 +189,6 @@ With this route you can modify the name of the article (title) and the content o
 
 
 <h4 style="font-size=120%" id="PUTarticle">PUT article :</h4>
-<br>
 <hr>
 ```
 localhost:8080/article
@@ -201,7 +196,6 @@ localhost:8080/article
 // here is the argument that MUST be present in the Json object of your resquest
 ```
 <hr>
-<br>
 
 Json Response :
 ```
@@ -216,15 +210,14 @@ With this route you can add a new article with the name of the article (title) a
 <br><br><br>
 
 <h3>COMMENTS :</h3>
-<br><br>
+<br>
 So now we will have a look at the comment section :
-<br><br>
+<br>
 
 <h4 style="font-size=120%" id="GETcomments">GET comments :</h4>
 <br>
 
 So the GET request of our API had to get the argument via Json data so we choose to use a POST request to get the comments and a PUT resquest to add a new comment, So to get all the comments from a specific article you will have to use a POST request :
-<br>
 
 <hr>
 ```
@@ -233,7 +226,6 @@ localhost:8080/comments
 // here is the argument that MUST be present in the Json object of your resquest
 ```
 <hr>
-<br>
 
 Json Response :
 ```
@@ -246,7 +238,6 @@ Json Response :
 
 
 <h4 style="font-size=120%" id="PUTcomment">PUT comment :</h4>
-<br>
 <hr>
 ```
 localhost:8080/comment
@@ -254,7 +245,6 @@ localhost:8080/comment
 // here are the argument that MUST be present in you Json object
 ```
 <hr>
-<br>
 
 Json Response :
 ```
@@ -270,7 +260,6 @@ So this route will made you able to add a comment using his id.
 
 
 <h4 style="font-size=120%" id="PATCHcomment">PATCH comment :</h4>
-<br>
 <hr>
 ```
 localhost:8080/comment
@@ -279,7 +268,6 @@ localhost:8080/comment
 // The id must be present
 ```
 <hr>
-<br>
 
 Json Response :
 ```
@@ -295,7 +283,6 @@ So this route will made you able to update a comment using his id.
 
 
 <h4 style="font-size=120%" id="DELETEcomment">DELETE comment :</h4>
-<br>
 <hr>
 ```
 localhost:8080/comment
@@ -304,7 +291,6 @@ localhost:8080/comment
 // The id must be present
 ```
 <hr>
-<br>
 
 Json Response :
 ```
