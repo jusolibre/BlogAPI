@@ -32,7 +32,7 @@ This routes need no arguments.
 
 <h2 id="GETarticle">GET article :</h2>
 
-<em style="font-size:80%;color:grey;margin-left:10%;">This route is a special one, you will need to send the id and as we are usiong a full Json communication, you will need to use a POST request, to be able to be able to send data in the body of your request, this request is the reason why you need to uncomment the line in your php.ini.
+<em style="font-size:80%;color:#FF0000;">This route is a special one, you will need to send the id and as we are usiong a full Json communication, you will need to use a POST request, to be able to be able to send data in the body of your request, this request is the reason why you need to uncomment the line in your php.ini.
 We could get the argument in the url and use a GET request but, as we had to use a full Json communication, we choose to create this route instead.</em>
 
 ```
