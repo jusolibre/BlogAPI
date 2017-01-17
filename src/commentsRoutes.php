@@ -23,6 +23,27 @@ $app->post("/comments", function($request, $response) {
 });
 
 /**
+ * @desc : This route will allow you to delete comments from a choosen Article ID.
+ * @return : JSON with a boolean and a success/fail message.
+ * @param : A json with "id" as argument. (Example : {"id": 1})
+ */
+$app->delete("/comments", function($request, $response) {
+    $error  = false;
+    $form	= ["article_id"];
+    $json	= json_decode($request->getBody(), true);
+    $error  = checkJson($form, $json);
+
+    if (!$error) {
+        $data   = Comments::selectById(htmlspecialchars($json["article_id"]));
+        $data   = isset($data["article_id"]) ? Comments::deleteComments(htmlspecialchars($json["article_id"])) : ["error" => true, "message" => "Comment(s) not found"];
+    } else {
+        $data   = ["error" => true, "message" => "Something goes wrong. Did you sent all required arguments?"];
+    }
+    $response->withHeader('Content-type', 'application/json');
+    return $response->withJson($data, 200, JSON_PRETTY_PRINT);
+});
+
+/**
  * @desc : This route will allow you to delete a comment from a choosen ID.
  * @return : JSON with a boolean and a success/fail message.
  * @param : A json with "id" as argument. (Example : {"id": 1})
