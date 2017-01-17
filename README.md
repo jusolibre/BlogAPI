@@ -26,7 +26,7 @@ First you need to be able to send Json data, and receive response in Json.
 ```
 localhost:8080/articles
 ```
-The Json response will look like :
+The Json response will look like (in case of success):
 ```
 [
   {
@@ -46,6 +46,13 @@ The Json response will look like :
     "date": "YYYY-MM-DD"
   }
 ]
+```
+And in case of fail, or if there is nothing in the database :
+```
+{
+  "error": true,
+  "message": "Not article in database"
+}
 ```
 This routes need no arguments.
 
