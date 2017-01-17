@@ -30,6 +30,7 @@ require __DIR__ . '/../src/checkJson.php';
 require __DIR__ . '/../src/routes.php';
 
 // Models
+require __DIR__ . '/../models/connect.class.php';
 require __DIR__ . '/../models/articles.class.php';
 require __DIR__ . '/../models/comments.class.php';
 
