@@ -16,7 +16,7 @@ $app->get('/', function ($request, $response, $args) {
  * @return : Json with all articles.
  * @param : N/A
  */
-$app->get("/articles", function($request, $response) { // SHOW  ALL ARTICLES IN A JSON OBJECT
+$app->get("/articles", function($request, $response) {
     $data = Articles::select();
     $response->withHeader('Content-type', 'application/json');
     return $response->withJson($data, 200, JSON_PRETTY_PRINT);
@@ -58,10 +58,9 @@ $app->patch('/article', function($request, $response, $args) {
     }
     $response->withHeader('Content-type', 'application/json');
     return $response->withJson($data, 200, JSON_PRETTY_PRINT);
-
 });
 
-$app->post('/search', function ($request, $response, $args) { // SEARCH AN ARTICLE BY ID
+$app->post('/search', function ($request, $response, $args) {
     $json   = json_decode($request->getBody(), true);
     if ((!isset($json["id"])) || (!is_numeric($json["id"]))) {
         $data	= ["error" => true, "message" => "ID is missing or it's not numeric.."];
