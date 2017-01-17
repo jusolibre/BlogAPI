@@ -5,7 +5,7 @@ class Comments {
         $query  = $this->db->query("SELECT * FROM comments WHERE article_id = '$id' ORDER BY date ASC;");
         $fetch  = $query->fetch();
         $row    = $query->rowCount();
-        $data   = ($row >= 1) ? $fetch : $fetch = ["error" => true, "message" => "Not comments in database"];
+        $data   = ($row >= 1) ? $fetch : ["error" => true, "message" => "Not comments in database"];
         return $data;
     }
 
@@ -15,7 +15,7 @@ class Comments {
             $fetch  = $query->fetch();
             $data   = $fetch == false ? ["error" => true, "message" => "Comment not found"] : $fetch;
         } else {
-            $data = ["error" => true, "message" => "Not id selected"];
+            $data = ["error" => true, "message" => "No ID selected"];
         }
         return $data;
     }
