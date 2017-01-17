@@ -23,8 +23,18 @@ require __DIR__ . '/../src/dependencies.php';
 // Register middleware
 require __DIR__ . '/../src/middleware.php';
 
+// Json Check
+require __DIR__ . '/../src/checkJson.php';
+
 // Register routes
 require __DIR__ . '/../src/routes.php';
+
+// Models
+require __DIR__ . '/../models/articles.class.php';
+require __DIR__ . '/../models/comments.class.php';
+
+// Register comments routes
+require  __DIR__ . '/../src/commentsRoutes.php';
 
 // Run app
 $app->run();
