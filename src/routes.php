@@ -16,7 +16,7 @@ $app->get('/', function ($request, $response, $args) {
  * @return : Json with all articles.
  * @param : N/A
  */
-$app->get("/articles", function($request, $response) {
+$app->get("/articles", function($request, $response) { // SHOW  ALL ARTICLES IN A JSON OBJECT
     $data = Articles::select();
     $response->withHeader('Content-type', 'application/json');
     return $response->withJson($data, 200, JSON_PRETTY_PRINT);
@@ -32,7 +32,7 @@ $app->delete('/article', function($request, $response, $args) {
     if ((!isset($json["id"])) || (!is_numeric($json["id"]))) {
         $data = ["error" => true, "message" => "Argument id is missing or it's not numeric!"];
     } else {
-        $id = (int) $json["id"];
+        $id     = (int) $json["id"];
         $data   = Articles::selectById($id);
         $data   = isset($data["id"]) ? Articles::deleteById($id) : ["error" => true, "message" => "Article not found"];
     }
@@ -51,16 +51,16 @@ $app->patch('/article', function($request, $response, $args) {
         $data = ["error" => true, "message" => "The id argument must be numeric."];
     } else {
         $id         = (int) $json["id"];
-        $title      = isset($json["title"]) ? htmlspecialchars($json["title"]) : "";
-        $message    = isset($json["message"]) ? htmlspecialchars($json["message"]) : "";
         $data       = Articles::selectById($id);
+        $title      = isset($json["title"]) ? htmlspecialchars($json["title"]) : $data["title"];
+        $message    = isset($json["message"]) ? htmlspecialchars($json["message"]) : $data["message"];
         $data       = isset($data["id"]) ? Articles::updateById($id, $title, $message) : ["error" => true, "message" => "Article not found"];
     }
     $response->withHeader('Content-type', 'application/json');
     return $response->withJson($data, 200, JSON_PRETTY_PRINT);
 });
 
-$app->post('/search', function ($request, $response, $args) {
+$app->post('/search', function ($request, $response, $args) { // SEARCH AN ARTICLE BY ID
     $json   = json_decode($request->getBody(), true);
     if ((!isset($json["id"])) || (!is_numeric($json["id"]))) {
         $data	= ["error" => true, "message" => "ID is missing or it's not numeric.."];
@@ -87,7 +87,7 @@ $app->put('/article', function ($request, $response) { // SAVE A NEW ARTICLE FRO
 		$title		= htmlspecialchars($json["title"]);
 		$message	= htmlspecialchars($json["message"]);
 		$author 	= htmlspecialchars($json["author"]);
-        	$data       	= Articles::insert($title, $message, $author);
+        $data       = Articles::insert($title, $message, $author);
 	} else {		
 		$data = ["error" => true, "message" => "Missing arguments in your JSON."];
 	}
