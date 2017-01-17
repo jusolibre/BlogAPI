@@ -13,9 +13,9 @@ Using differents routes you will be able to :
 
 We also add a comment management so you can use differents routes like for articles :
   - <a href="#GETcomments">list the comments on a specific article</a>,
-  - <a href="#DELETEcomment">add a comment</a>,
+  - <a href="#PUTcomment">add a comment</a>,
   - <a href="#PATCHcomment">modify a comment</a>,
-  - <a href="#PUTcomment">and finally delete a comment</a>.
+  - <a href="#DELETEcomment">and finally delete a comment</a>.
 
 So here are the differents routes :
 
@@ -166,7 +166,7 @@ With this route you can add a new article with the name of the article (title) a
 
 So now we will have a look at the comment section :
 
-<h3 id="GETcomments">GET comments :</h3>
+<h3 style="font-size=120%" id="GETcomments">GET comments :</h3>
 So the GET request of our API had to get the argument via Json data so we choose to use a POST request to get the comments and a PUT resquest to add a new comment, So to get all the comments from a specific article you will have to use a POST request :
 ```
 localhost:8080/comments
@@ -183,11 +183,11 @@ Json Response :
 
 
 
-<h3 id="DELETEcomment">DELETE comment :</h3>
+<h3 style="font-size=120%" id="PUTcomment">PUT comment :</h3>
 ```
 localhost:8080/comment
-["id"]
-// here is the argument that MUST be present in the Json object of your resquest
+["id", "author", "article_id", "comment"]
+// here is the argument that CAN be present in the Json object of your resquest
 // The id must be present
 ```
 Json Response :
@@ -201,11 +201,12 @@ So this route will made you able to update a comment using his id.
 
 
 
-<h3 id="PUTcomment">PUT comment :</h3>
+
+<h3 style="font-size=120%" id="DELETEcomment">DELETE comment :</h3>
 ```
 localhost:8080/comment
-["id", "author", "article_id", "comment"]
-// here is the argument that CAN be present in the Json object of your resquest
+["id"]
+// here is the argument that MUST be present in the Json object of your resquest
 // The id must be present
 ```
 Json Response :
