@@ -1,5 +1,5 @@
 Welcome to our API REST github page.
-This API was created using slim so we will give you examples using localhost and the port 8080, but you will be able to use it on the port you choose and with your database.
+This API was created using slim so we will give you <strong>examples using localhost and the port 8080</strong>, but you will be able to use it on the port you choose and with your database.
 
 Our API will allow you to access a blog from your own website.
 Using differents routes you will be able to :
