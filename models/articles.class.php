@@ -37,7 +37,7 @@ class Articles {
 
     public static function deleteById ($id) {
         $delete = DataBase::bdd()->query("DELETE FROM miniblog WHERE id = $id");
-        if (!$delete) {
+        if ($delete) {
             $delete = DataBase::bdd()->query("DELETE FROM comments WHERE article_id = $id");
             $data   = ["error" => false, "message" => "Article has been deleted!"];
         }
