@@ -5,11 +5,11 @@ This API was created using slim so we will give you <strong>examples using local
 
 <h5 style="font-size:140%;">YOU WILL NEED TO UNCOMMENT THE LINE <em>always_populate_raw_post_data = -1</em> IN YOUR PHP.INI FILE </h5>
 
-<h3>Summary</h3>
+<h2>Summary</h2>
 <ul>
-    <li>Requirement</li>
-    <li>Setup database connection</li>
-    <li>What to do ?</li>
+    <li><a href="#requirement">Requirement</a></li>
+    <li><a href="#database">Setup database connection</a></li>
+    <li><a href="#whattodo">What to do ?</a></li>
 </ul>
 
 Our API will allow you to access a blog from your own website.
@@ -28,19 +28,19 @@ We also add a comment management so you can use differents routes like for artic
   - <a href="#DELETEcomment">Delete a comment</a>.
 <br>
 
-<h2>Requirement</h2>
+<h2 id="requirement">Requirement</h2>
 <ul>
     <li>PHP 5.6 >=</li>
     <li>Xampp or Wampp (Only if you try this project in local)</li>
     <li><a href="https://getcomposer.org/">Composer</a></li>
 </ul>
 
-<h2>Setup database connection</h2>
+<h2 id="database">Setup database connection</h2>
 Of course, you have to setup your database connection informations. To do that, go on the "src" folder and open the file "settings.php". You will see an array called "db" with all database informations. Feel free to edit them with your database informations! <br />
 
 Don't forget to importing the blog2.sql file in your database.
 
-<h2>What to do?</h2>
+<h2 id="whattodo">What to do?</h2>
 After having everything, you will have to run composer to get the "vendor" folder. Open the windows "cmd", and type :
 ```
 composer install
