@@ -209,12 +209,13 @@ If we have all required arguments and if everything is good, the JSON response w
     message: "Success" //will contain the message corresponding to you error if you get one.
   }
 ```
-<br>
-
-So this route will made you able to add a comment using his id.
-<br><br><br>
-
-
+Otherwise, you will have an error if the article is not found or if you are not allowed to delete an article:
+```
+{
+  "error": true,
+  "message": "Error msg"
+}
+```
 <h4 style="font-size=180%;text-decoration: underline;" id="PATCHcomment">PATCH comment :</h4><hr>
 
 ```
