@@ -101,33 +101,24 @@ This route needs the argument "id" and the article ID. (numeric)
 ```
 localhost:8080/article
 ["id"]
-// here is the argument that MUST be present in the Json object of your resquest
-
+// here is the argument that MUST be present in the Json object of your request
 ```
-
-
-In case of success :
+If you have provided a valid JSON and ID, you will have a success message like that : 
 ```
 {
   "error": false,
   "message": "Article has been deleted!"
 }
 ```
-<br>
-
-
-In case of error :
+Otherwise, you will have an error if the article is not found or if you are not allowed to delete an article:
 ```
 {
   "error": true,
   "message": "Error msg"
 }
 ```
+This route needs the argument "id" and the article ID. (numeric)
 <br>
-
-This route needs the ID of the article you want to delete.
-<br><br><br>
-
 
 <h4 style="font-size=180%;text-decoration: underline;" id="PATCHarticle">PATCH article :</h4><hr>
 
