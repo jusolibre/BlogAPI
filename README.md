@@ -54,8 +54,6 @@ If we have all required arguments and if everything is good, the JSON response w
   }
 ]
 ```
-<br>
-
 
 Otherwise, if something is missing or if something is wrong, we will have that kind of JSON : 
 ```
