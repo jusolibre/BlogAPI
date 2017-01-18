@@ -1,66 +1,46 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: stagiaire
- * Date: 18/01/2017
- * Time: 09:29
- */
-
-
 class Connection {
 
-    private function myEncrypt($password, $username) {
-
-        $newPass = crypt(addslashes($password), "\$_\\\[B\]\[l\]\[o\]\[g\]\[A\]\[P\]\[I\]\[S\]\[A\]\[L\]\[T\]\/_\$" . addslashes($username));
-        $newPass = password_hash($newPass, PASSWORD_DEFAULT);
-
-        return ($newPass);
+    static private function myEncrypt($password) {
+        $newPass = password_hash($password, PASSWORD_DEFAULT);
+        return $newPass;
     }
 
-    private function insert($username, $passwordHash, $apiKey) {
-        $query  = DataBase::bdd()->query("SELECT * FROM account WHERE username == $username");
-
+    static private function insert($username, $passwordHash, $apiKey) {
+        $query  = DataBase::bdd()->query("SELECT * FROM users WHERE username ='{$username}'");
         $query->fetchAll();
         $row    = $query->rowCount();
 
         if ($row > 0) {
             return ["error" => true, "message" => "An account with this username already exist"];
+        } else {
+            $register = DataBase::bdd()->prepare("INSERT INTO users(username, password_hash, apiKey) VALUES(:username, :passwordHash, :apiKey)");
+
+            $register->bindParam(':username', $username);
+            $register->bindParam(':passwordHash', $passwordHash);
+            $register->bindParam(':apiKey', $apiKey);
+            $result = $register->execute();
+            $data   = $result ? ["error" => false, "message" => "Success"] : ["error" => true, "message" => "Something went wrong adding your account to our database"];
         }
-
-        $register 	= DataBase::bdd()->prepare("INSERT INTO account(username, passwordHash, apiKey) VALUES(:username, :passwordHash, :apiKey)");
-
-        $register->bindParam(':username', $username);
-        $register->bindParam(':passwordHash', $passwordHash);
-        $register->bindParam(':apiKey', $apiKey);
-        $result = $register->execute();
-
-        $data = ($result) ? ["error" => false, "message" => "Success"] : ["error" => true, "message" => "Something went wrong adding you account to our database"];
-
         return $data;
     }
 
-    private function verifyApiKey($apiKey) {
-        $query  = DataBase::bdd()->query("SELECT * FROM account WHERE apiKey == $apiKey");
-
+    static private function verifyApiKey($apiKey) {
+        $query  = DataBase::bdd()->query("SELECT * FROM users WHERE apiKey ='{$apiKey}'");
         $fetch  = $query->fetchAll();
         $row    = $query->rowCount();
-
         return ($row > 0) ? false : true;
     }
 
-    private function getUserAccount($username) {
-        $query  = DataBase::bdd()->query("SELECT * FROM account WHERE username == $username");
-
+    static private function getUserAccount($username) {
+        $query  = DataBase::bdd()->query("SELECT * FROM users WHERE username ='{$username}'");
         $fetch  = $query->fetch();
-
         return $fetch;
     }
 
     static public function getUsername ($apiKey) {
-        $query  = DataBase::bdd()->query("SELECT * FROM account WHERE apiKey == $apiKey");
-
+        $query  = DataBase::bdd()->query("SELECT * FROM users WHERE apiKey ='{$apiKey}");
         $fetch  = $query->fetch();
-
         return $fetch['username'];
     }
 
@@ -75,11 +55,9 @@ class Connection {
         return Connection::insert($username, $newPassword, $apiKey);
     }
 
-    static public function connection($username, $password) {
+    static public function login($username, $password) {
         $user = Connection::getUserAccount($username);
-        $toCheck = Connection::myEncrypt($password, $username);
-
-        if ($toCheck == $user['passwordHash']) {
+        if (password_verify($password, $user["password_hash"])) {
             return (['apiKey' => $user['apiKey']]);
         } else {
             return (["error" => true, "message" => "Wrong password"]);
