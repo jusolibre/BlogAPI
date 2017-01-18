@@ -22,10 +22,12 @@ We also add a comment management so you can use differents routes like for artic
 <br> <br />
 
 <h2>Setup database connection</h2>
-Of course, you have to setup your database connection informations. To do that, go on the "src" folder and open the file "settings.php". You will see an array called "db" with all database informations. Feel free to edit them with your database informations!
+Of course, you have to setup your database connection informations. To do that, go on the "src" folder and open the file "settings.php". You will see an array called "db" with all database informations. Feel free to edit them with your database informations! <br />
 
-<b>IMPORTANT: </b>You need to register an account before doing that because you need an apiKey! Here are the steps to get your apiKey.
+Don't forget to importing the blog2.sql file in your database.
+
 <h2>Get an ApiKey</h2>
+<b>IMPORTANT: </b>You need to register an account before doing that because you need an apiKey! Here are the steps to get your apiKey.
 <ul>
     <li>You need to send a POST request to the route "/register" with a JSON including       {"username":"YOURUSERNAME","password":"YOURPASSWORD"}</li>
     <li>After that, you need to login by sending a POST request on the route "/login" with a JSON including {"username":"YOURUSERNAME", "password":"YOURPASSWORD"}</li>
