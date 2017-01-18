@@ -27,7 +27,7 @@ First, you need to be able to send a JSON with required arguments and receive a 
 
 <h3 style="font-size:200%;">ARTICLE :</h3>
 
-<h4 style="font-size=180%;text-decoration: underline;" id="articles">GET articles :</h4><hr>
+<h4 style="font-size=180%;text-decoration: underline;" id="articles">GET all articles :</h4><hr>
 
 ```
 localhost:8080/articles
@@ -66,21 +66,16 @@ Otherwise, if something is missing or if something is wrong, we will have that k
 Note : This route needs no arguments.
 <br>
 
-<h4 style="font-size=180%;text-decoration: underline;" id="GETarticle">GET article :</h4><hr>
+<h4 style="font-size=180%;text-decoration: underline;" id="GETarticle">GET an article :</h4><hr>
 
-<em style="font-size:80%;">This route is a special one, you will need to send the id and as we are using a full Json communication, you will need to use a POST request, to be able to send data in the body of your request, this request is the reason why you need to uncomment the line in your php.ini.
-We could get the argument in the url and use a GET request but, as we had to use a full Json communication, we have chosen to create this route instead.</em>
-<br>
-
+<em style="font-size:80%;">This route allows you to get an article informations. To do it, you will have to send a json with the argument "id" and the article ID you want to get by using a POST request. For example : To get the article "1", I will have to send that JSON: {"id":1}.</em>
 
 ```
 localhost:8080/search
 ["id"]
 // here is the argument that MUST be present in the Json object of your resquest
 ```
-
-
-In case of success :
+If you provided a valid JSON and ID, the informations of the article will be returned in a JSON:
 ```
 {
   "id": "id",
@@ -93,16 +88,14 @@ In case of success :
 ```
 <br>
 
-In case of error :
+Otherwise, you will have an error : 
 ```
 {
   "error": true,
   "message": "Error msg"
 }
 ```
-<br>
-
-This route needs the ID of the article you are looking for.
+This route needs the argument "id" and the article ID. (numeric)
 <br><br><br>
 
 
