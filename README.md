@@ -116,7 +116,7 @@ This route needs the argument "id" and the article ID. (numeric)
 <br>
 
 <h4 style="font-size=180%;text-decoration: underline;" id="PATCHarticle">PATCH article :</h4><hr>
-<em style="font-size:80%;">This route allows you to update an article. To do it, you will have to send a json with the argument "id" (required), "author" and "message" but they are not required, by using a POST request. <br />
+<em style="font-size:80%;">This route allows you to update an article. To do it, you will have to send a json with the arguments "id" (required), "author" and "message" but they are not required, by using a POST request. <br />
 
 For example : To update the article "1", I will have to send that JSON: {"id":1, "author":"Clement", "message": "Hello world!"}.</em>
 
@@ -242,7 +242,7 @@ Otherwise, you will have an error if the article is not found or if you are not 
 }
 ```
 <h4 style="font-size=180%;text-decoration: underline;" id="DELETEcomment">DELETE a comment :</h4><hr>
-<em style="font-size:80%;">This route allows you to delete a comment. To do it, you will have to send a json with the arguments "id" by using a DELETE request. <br />
+<em style="font-size:80%;">This route allows you to delete a comment. To do it, you will have to send a json with the argument "id" by using a DELETE request. <br />
 
 For example : To delete the comment 1, I will have to send that JSON: {"id":1}.</em>
 
