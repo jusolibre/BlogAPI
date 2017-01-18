@@ -147,8 +147,6 @@ Otherwise, you will have an error message :
 }
 ```
 
-<br>
-
 <h4 style="font-size=180%;text-decoration: underline;" id="PUTarticle">PUT article :</h4><hr>
 
 ```
