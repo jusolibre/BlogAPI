@@ -32,7 +32,6 @@ First, you need to be able to send a JSON with required arguments and receive a 
 ```
 localhost:8080/articles
 ```
-
 If we have all required arguments and if everything is good, the JSON response will look like that : 
 ```
 [
@@ -54,7 +53,6 @@ If we have all required arguments and if everything is good, the JSON response w
   }
 ]
 ```
-
 Otherwise, if something is missing or if something is wrong, we will have that kind of JSON : 
 ```
 {
@@ -72,7 +70,7 @@ localhost:8080/search
 ["id"]
 // here is the argument that MUST be present in the Json object of your resquest
 ```
-If you provided a valid JSON and ID, the informations of the article will be returned in a JSON:
+If we have all required arguments and if everything is good, the JSON response will look like that :
 ```
 {
   "id": "id",
@@ -100,7 +98,7 @@ localhost:8080/article
 ["id"]
 // here is the argument that MUST be present in the Json object of your request
 ```
-If you have provided a valid JSON and ID, you will have a success message like that : 
+If we have all required arguments and if everything is good, the JSON response will look like that :
 ```
 {
   "error": false,
@@ -129,7 +127,7 @@ localhost:8080/article
 // The id must be present
 
 ```
-If you have provided a valid JSON/Article ID, you will have a successful message : 
+If we have all required arguments and if everything is good, the JSON response will look like that :
 ```
 {
   "error": false,
@@ -154,7 +152,7 @@ localhost:8080/article
 ["title", "message", "author"]
 // here is the argument that MUST be present in the Json object of your resquest
 ```
-If you have provided a valid JSON/Article ID, you will have a successful message : 
+If we have all required arguments and if everything is good, the JSON response will look like that :
 ```
   {
     error: false, //will be true if you get an error
@@ -181,7 +179,7 @@ localhost:8080/comments
 ["id"]
 // here is the argument that MUST be present in the Json object of your resquest
 ```
-If you have provided a valid JSON and ID, you will have a success message like that : 
+If we have all required arguments and if everything is good, the JSON response will look like that :
 ```
   {
     error: false, //will be true if you get an error
@@ -196,15 +194,15 @@ Otherwise, you will have an error message :
 }
 ```
 <h4 style="font-size=180%;text-decoration: underline;" id="PUTcomment">PUT comment :</h4><hr>
+<em style="font-size:80%;">This route allows you to insert a new comment on the article you have chosen. To do it, you will have to send a json with the arguments "article_id", "title", "comment" by using a PUT request. <br />
 
+For example : To insert a new comment on the article ID 1, I will have to send that JSON: {"author":"Julien", "article_id":1, "comment":"Hello!"}.</em>
 ```
 localhost:8080/comment
-["id", "author", "article_id", "comment"]
+["author", "article_id", "comment"]
 // here are the argument that MUST be present in you Json object
 ```
-
-
-Json Response :
+If we have all required arguments and if everything is good, the JSON response will look like that :
 ```
   {
     error: false, //will be true if you get an error
