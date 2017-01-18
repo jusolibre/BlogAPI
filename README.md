@@ -1,5 +1,4 @@
 <h1>Welcome to our API REST github page.</h1>
-<br><br>
 
 This API was created using slim so we will give you <strong>examples using localhost and the port 8080</strong>, but you will be able to use it on the port you have chosen and with your database.
 <br>
