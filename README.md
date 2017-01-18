@@ -21,7 +21,7 @@ We also add a comment management so you can use differents routes like for artic
   - <a href="#DELETEcomment">Delete a comment</a>.
 <br>
 
-<h2>So here are the differents routes :</h2>
+<h2>So here are the differents routes for ARTICLES :</h2>
 
 First, you need to be able to send a JSON with required arguments and receive a response in a JSON.
 
@@ -168,7 +168,7 @@ Otherwise, you will have an error message :
   "message": "Error msg"
 }
 ```
-<h3 style="font-size:200%;">COMMENTS :</h3>
+<h2>So here are the differents routes for COMMENTS:</h2>
 <br>
 So now we will have a look at the comment section :
 <br>
