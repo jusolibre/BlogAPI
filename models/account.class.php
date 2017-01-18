@@ -46,7 +46,7 @@ class Connection {
     }
 
     static public function getUsername ($apiKey) {
-        $query  = DataBase::bdd()->query("SELECT * FROM users WHERE apiKey ='{$apiKey}");
+        $query  = DataBase::bdd()->query("SELECT * FROM users WHERE apiKey ='{$apiKey}'");
         $fetch  = $query->fetch();
         $row    = $query->rowCount();
 
