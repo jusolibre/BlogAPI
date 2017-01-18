@@ -23,7 +23,7 @@ We also add a comment management so you can use differents routes like for artic
 
 <h2>Requirement</h2>
 <ul>
-    <li>PHP 5 >=</li>
+    <li>PHP 5.6 >=</li>
     <li>Xampp or Wampp (Only if you try this project in local)</li>
     <li><a href="https://getcomposer.org/">Composer</a></li>
 </ul>
@@ -37,6 +37,10 @@ Don't forget to importing the blog2.sql file in your database.
 After having everything, you will have to run composer to get the "vendor" folder. Open the windows "cmd", and type :
 ```
 composer install
+```
+Yes! We have now the vendor folder. Now, we can run the server : 
+```
+php -S 0.0.0.0:8080 public public/index.php
 ```
 <h2>Get an ApiKey</h2>
 <b>IMPORTANT: </b>You need to register an account before doing that because you need an apiKey! Here are the steps to get your apiKey.
