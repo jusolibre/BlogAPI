@@ -51,7 +51,7 @@ Yes! We have now the vendor folder. Now, we can run the server :
 ```
 php -S 0.0.0.0:8080 public public/index.php
 ```
-Oh! And I forgot about PHP.INI; You will need to uncomment the line :
+Oh! And I forgot about PHP.INI; You will need to uncomment the line in your PHP folder :
 ```
 always_populate_raw_post_data = -1
 ```
