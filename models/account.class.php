@@ -35,17 +35,20 @@ class Connection {
     static private function getUserAccount($username) {
         $query  = DataBase::bdd()->query("SELECT * FROM users WHERE username ='{$username}'");
         $fetch  = $query->fetch();
-        return $fetch;
+        $row    = $query->rowCount();
+
+        return ($row > 0) ? $fetch : false;
     }
 
     static public function getUsername ($apiKey) {
         $query  = DataBase::bdd()->query("SELECT * FROM users WHERE apiKey ='{$apiKey}");
         $fetch  = $query->fetch();
-        return $fetch['username'];
+        $row    = $query->rowCount();
+
+        return ($row > 0) ? $fetch['username'] : false;
     }
 
     static public function register($username, $password) {
-
         $newPassword = Connection::myEncrypt($password, $username);
         $apiKey = bin2hex(openssl_random_pseudo_bytes(32));
         while (!Connection::verifyApiKey($apiKey)) {
@@ -57,10 +60,15 @@ class Connection {
 
     static public function login($username, $password) {
         $user = Connection::getUserAccount($username);
-        if (password_verify($password, $user["password_hash"])) {
-            return (['apiKey' => $user['apiKey']]);
+
+        if ($user) {
+            if (password_verify($password, $user["password_hash"])) {
+                return (['apiKey' => $user['apiKey']]);
+            } else {
+                return (["error" => true, "message" => "Wrong password"]);
+            }
         } else {
-            return (["error" => true, "message" => "Wrong password"]);
+            return (["error" => true, "message" => "Undefined account"]);
         }
     }
 }
