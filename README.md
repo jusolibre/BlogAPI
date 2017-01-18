@@ -19,18 +19,17 @@ We also add a comment management so you can use differents routes like for artic
   - <a href="#PUTcomment">Add a comment</a>,
   - <a href="#PATCHcomment">Edit a comment</a>,
   - <a href="#DELETEcomment">Delete a comment</a>.
-<br><br />
-
+<br>
 <b>IMPORTANT: </b>You need to register an account because doing that because you need an apiKey! Here are the steps to get your apiKey.
 <h2>Get an ApiKey</h2>
 
 <ul>
-    <li>You need to send a POST request to the route "/register" with a JSON including {"username":"YOURUSERNAME", "password":"YOURPASSWORD"}</li>
+    <li>You need to send a POST request to the route "/register" with a JSON including       {"username":"YOURUSERNAME","password":"YOURPASSWORD"}</li>
     <li>After that, you need to login by sending a POST request on the route "/login" with a JSON including {"username":"YOURUSERNAME", "password":"YOURPASSWORD"}</li>
     <li>If your account details are corrects, you will get your apiKey.</li>
 </ul>
-<h2>Setup my ApiKey</h2>
-
+<h2>How to use my ApiKey?</h2>
+Since you have your ApiKey, you will have to set a header named "Authorization" and your ApiKey as value.
 
 <h2>So here are the differents routes for ARTICLES :</h2>
 
