@@ -288,4 +288,4 @@ Otherwise, you will have an error if the article is not found or if you are not 
 }
 ```
 <h2>Questions? Bugs?</h2>
-Feel free to open a new issue.
+Feel free to open a new issue and we'll try to help you!
