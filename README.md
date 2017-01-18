@@ -169,14 +169,13 @@ Otherwise, you will have an error message :
 }
 ```
 <h2>So here are the differents routes for COMMENTS:</h2>
-<br>
 So now we will have a look at the comment section :
 <br>
 
-<h4 style="font-size=180%;text-decoration: underline;" id="GETcomments">GET comments :</h4><hr>
-So the GET request of our API had to get the argument via Json data so we choose to use a POST request to get the comments and a PUT resquest to add a new comment, So to get all the comments from a specific article you will have to use a POST request :
+<h4 style="font-size=180%;text-decoration: underline;" id="GETcomments">GET all comments from an article :</h4><hr>
+<em style="font-size:80%;">This route allows you to get all comments from an article ID. To do it, you will have to send a json with the argument "id" by using a POST request. <br />
 
-
+For example : To get all comments from the article 1, I will have to send that JSON: {"id":1}.</em>
 ```
 localhost:8080/comments
 ["id"]
