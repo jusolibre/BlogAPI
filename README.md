@@ -1,7 +1,7 @@
 <h1>Welcome to our API REST github page.</h1>
 
 This API was created using slim so we will give you <strong>examples using localhost and the port 8080</strong>, but you will be able to use it on the port you have chosen and with your database.
-<br> <br />
+<br>
 
 <h5 style="font-size:140%;">YOU WILL NEED TO UNCOMMENT THE LINE <em>always_populate_raw_post_data = -1</em> IN YOUR PHP.INI FILE </h5>
 
