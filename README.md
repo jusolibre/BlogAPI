@@ -63,9 +63,6 @@ Otherwise, if something is missing or if something is wrong, we will have that k
 }
 ```
 
-Note : This route needs no arguments.
-<br>
-
 <h4 style="font-size=180%;text-decoration: underline;" id="GETarticle">GET an article :</h4><hr>
 
 <em style="font-size:80%;">This route allows you to get an article informations. To do it, you will have to send a json with the argument "id" and the article ID you want to get by using a POST request. For example : To get the article "1", I will have to send that JSON: {"id":1}.</em>
@@ -148,6 +145,9 @@ Otherwise, you will have an error message :
 ```
 
 <h4 style="font-size=180%;text-decoration: underline;" id="PUTarticle">PUT article :</h4><hr>
+<em style="font-size:80%;">This route allows you to update a new article. To do it, you will have to send a json with the arguments "title", "message", "author" by using a PUT request. <br />
+
+For example : To insert a new article, I will have to send that JSON: {"author":"Clement", "message": "Hello world!", "title":"New article!"}.</em>
 
 ```
 localhost:8080/article
