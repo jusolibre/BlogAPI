@@ -94,7 +94,7 @@ Otherwise, you will have an error :
 }
 ```
 This route needs the argument "id" and the article ID. (numeric)
-<br><br><br>
+<br>
 
 
 <h4 style="font-size=180%;text-decoration: underline;" id="DELETEarticle">DELETE article :</h4><hr>
