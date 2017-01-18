@@ -23,10 +23,9 @@ We also add a comment management so you can use differents routes like for artic
 
 <h2>So here are the differents routes :</h2>
 
-First you need to be able to send Json data, and receive response in Json.
+First, you need to be able to send a JSON with required arguments and receive a response in a JSON.
 
 <h3 style="font-size:200%;">ARTICLE :</h3>
-<br>
 
 <h4 style="font-size=180%;text-decoration: underline;" id="articles">GET articles :</h4><hr>
 
