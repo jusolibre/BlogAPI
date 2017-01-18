@@ -5,6 +5,13 @@ This API was created using slim so we will give you <strong>examples using local
 
 <h5 style="font-size:140%;">YOU WILL NEED TO UNCOMMENT THE LINE <em>always_populate_raw_post_data = -1</em> IN YOUR PHP.INI FILE </h5>
 
+<h3>Summary</h3>
+<ul>
+    <li>Requirement</li>
+    <li>Setup database connection</li>
+    <li>What to do ?</li>
+</ul>
+
 Our API will allow you to access a blog from your own website.
 Using differents routes you will be able to :
   - <a href="#articles">List all articles</a>,
