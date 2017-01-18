@@ -51,6 +51,8 @@ Yes! We have now the vendor folder. Now, we can run the server :
 ```
 php -S 0.0.0.0:8080 public public/index.php
 ```
+Don't forget after that to get your ApiKey! For informations you will be able to insert/update/delete an article/comment only if you are logged in and if you are allowed to according to the author.
+
 <h2 id="getapi">Get an ApiKey</h2>
 <b>IMPORTANT: </b>You need to register an account before doing that because you need an apiKey! Here are the steps to get your apiKey.
 <ul>
