@@ -62,11 +62,9 @@ Otherwise, if something is missing or if something is wrong, we will have that k
   "message": "Not article in database"
 }
 ```
+
+Note : This route needs no arguments.
 <br>
-
-This route needs no arguments.
-<br><br><br>
-
 
 <h4 style="font-size=180%;text-decoration: underline;" id="GETarticle">GET article :</h4><hr>
 
