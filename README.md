@@ -154,20 +154,20 @@ localhost:8080/article
 ["title", "message", "author"]
 // here is the argument that MUST be present in the Json object of your resquest
 ```
-
-
-Json Response :
+If you have provided a valid JSON/Article ID, you will have a successful message : 
 ```
   {
     error: false, //will be true if you get an error
     message: "Success" //will contain the message corresponding to you error if you get one.
   }
 ```
-<br>
-
-With this route you can add a new article with the name of the article (title) and the content of the article (message).
-<br><br><br>
-
+Otherwise, you will have an error message :
+```
+{
+  "error": true,
+  "message": "Error msg"
+}
+```
 <h3 style="font-size:200%;">COMMENTS :</h3>
 <br>
 So now we will have a look at the comment section :
