@@ -1,7 +1,7 @@
 <h1>Welcome to our API REST github page.</h1>
 
 This API was created using slim so we will give you <strong>examples using localhost and the port 8080</strong>, but you will be able to use it on the port you have chosen and with your database.
-<br>
+<br> <br />
 
 <h5 style="font-size:140%;">YOU WILL NEED TO UNCOMMENT THE LINE <em>always_populate_raw_post_data = -1</em> IN YOUR PHP.INI FILE </h5>
 
@@ -19,7 +19,18 @@ We also add a comment management so you can use differents routes like for artic
   - <a href="#PUTcomment">Add a comment</a>,
   - <a href="#PATCHcomment">Edit a comment</a>,
   - <a href="#DELETEcomment">Delete a comment</a>.
-<br>
+<br><br />
+
+<b>IMPORTANT: </b>You need to register an account because doing that because you need an apiKey! Here are the steps to get your apiKey.
+<h2>Get an ApiKey</h2>
+
+<ul>
+    <li>You need to send a POST request to the route "/register" with a JSON including {"username":"YOURUSERNAME", "password":"YOURPASSWORD"}</li>
+    <li>After that, you need to login by sending a POST request on the route "/login" with a JSON including {"username":"YOURUSERNAME", "password":"YOURPASSWORD"}</li>
+    <li>If your account details are corrects, you will get your apiKey.</li>
+</ul>
+<h2>Setup my ApiKey</h2>
+
 
 <h2>So here are the differents routes for ARTICLES :</h2>
 
