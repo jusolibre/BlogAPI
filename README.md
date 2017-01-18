@@ -217,28 +217,30 @@ Otherwise, you will have an error if the article is not found or if you are not 
 }
 ```
 <h4 style="font-size=180%;text-decoration: underline;" id="PATCHcomment">PATCH comment :</h4><hr>
+<em style="font-size:80%;">This route allows you to update a comment on the article you have chosen. To do it, you will have to send a json with the arguments "id" (comment_id, required), "title", "comment" (but they are not required) by using a PATCH request. <br />
+
+For example : To update the comment ID 1, I will have to send that JSON: {"id":1, "author":"Clement","comment":"Hello!"}.</em>
 
 ```
 localhost:8080/comment
-["id", "author", "article_id", "comment"]
+["author", "id", "comment"]
 // here is the argument that CAN be present in the Json object of your resquest
 // The id must be present
 ```
-
-
-Json Response :
+If we have all required arguments and if everything is good, the JSON response will look like that :
 ```
   {
     error: false, //will be true if you get an error
     message: "Success" //will contain the message corresponding to you error if you get one.
   }
 ```
-<br>
-
-So this route will made you able to update a comment using his id.
-<br><br><br>
-
-
+Otherwise, you will have an error if the article is not found or if you are not allowed to delete an article:
+```
+{
+  "error": true,
+  "message": "Error msg"
+}
+```
 <h4 style="font-size=180%;text-decoration: underline;" id="DELETEcomment">DELETE comment :</h4><hr>
 
 ```
