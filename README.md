@@ -132,30 +132,22 @@ localhost:8080/article
 // The id must be present
 
 ```
-
-
-In case of success :
+If you have provided a valid JSON/Article ID, you will have a successful message : 
 ```
 {
   "error": false,
   "message": "Article has been updated!"
 }
 ```
-<br>
-
-
-In case of error :
+Otherwise, you will have an error message :
 ```
 {
   "error": true,
   "message": "Error msg"
 }
 ```
+
 <br>
-
-With this route you can modify the name of the article (title) and the content of the article (message).
-<br><br><br>
-
 
 <h4 style="font-size=180%;text-decoration: underline;" id="PUTarticle">PUT article :</h4><hr>
 
