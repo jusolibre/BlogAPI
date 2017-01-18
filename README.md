@@ -25,7 +25,7 @@ We also add a comment management so you can use differents routes like for artic
 <ul>
     <li>PHP 5 >=</li>
     <li>Xampp or Wampp (Only if you try this project in local)</li>
-    <li>Composer</li>
+    <li><a href="https://getcomposer.org/">Composer</a></li>
 </ul>
 
 <h2>Setup database connection</h2>
@@ -33,6 +33,11 @@ Of course, you have to setup your database connection informations. To do that, 
 
 Don't forget to importing the blog2.sql file in your database.
 
+<h2>What to do?</h2>
+After having everything, you will have to run composer to get the "vendor" folder. Open the windows "cmd", and type :
+```
+composer install
+```
 <h2>Get an ApiKey</h2>
 <b>IMPORTANT: </b>You need to register an account before doing that because you need an apiKey! Here are the steps to get your apiKey.
 <ul>
