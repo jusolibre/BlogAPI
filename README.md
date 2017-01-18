@@ -181,18 +181,20 @@ localhost:8080/comments
 ["id"]
 // here is the argument that MUST be present in the Json object of your resquest
 ```
-
-
-Json Response :
+If you have provided a valid JSON and ID, you will have a success message like that : 
 ```
   {
     error: false, //will be true if you get an error
     message: "Success" //will contain the message corresponding to you error if you get one.
   }
 ```
-<br><br><br>
-
-
+Otherwise, you will have an error message :
+```
+{
+  "error": true,
+  "message": "Error msg"
+}
+```
 <h4 style="font-size=180%;text-decoration: underline;" id="PUTcomment">PUT comment :</h4><hr>
 
 ```
