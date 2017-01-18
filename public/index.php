@@ -33,7 +33,7 @@ require __DIR__ . '/../src/routes.php';
 require __DIR__ . '/../models/connect.class.php';
 require __DIR__ . '/../models/articles.class.php';
 require __DIR__ . '/../models/comments.class.php';
-
+require __DIR__ . '/../models/connection.class.php';
 // Register comments routes
 require  __DIR__ . '/../src/commentsRoutes.php';
 
