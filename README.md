@@ -21,6 +21,9 @@ We also add a comment management so you can use differents routes like for artic
   - <a href="#DELETEcomment">Delete a comment</a>.
 <br> <br />
 
+<h2>Setup database connection</h2>
+Of course, you have to setup your database connection informations. To do that, go on the "src" folder and open the file "settings.php". You will see an array called "db" with all database informations. Feel free to edit them with your database informations!
+
 <b>IMPORTANT: </b>You need to register an account before doing that because you need an apiKey! Here are the steps to get your apiKey.
 <h2>Get an ApiKey</h2>
 <ul>
