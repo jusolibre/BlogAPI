@@ -24,10 +24,8 @@ We also add a comment management so you can use differents routes like for artic
 <br><br><br>
 
 <h2>So here are the differents routes :</h2>
-<br>
 
 First you need to be able to send Json data, and receive response in Json.
-<br><br>
 
 <h3 style="font-size:200%;">ARTICLE :</h3>
 <br>
@@ -37,8 +35,6 @@ First you need to be able to send Json data, and receive response in Json.
 ```
 localhost:8080/articles
 ```
-
-
 
 The Json response will look like (in case of success):
 ```
