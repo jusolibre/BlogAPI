@@ -20,6 +20,7 @@ We also add a comment management so you can use differents routes like for artic
   - <a href="#PATCHcomment">Edit a comment</a>,
   - <a href="#DELETEcomment">Delete a comment</a>.
 <br> <br />
+
 <b>IMPORTANT: </b>You need to register an account because doing that because you need an apiKey! Here are the steps to get your apiKey.
 <h2>Get an ApiKey</h2>
 <ul>
