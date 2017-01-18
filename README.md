@@ -10,6 +10,8 @@ This API was created using slim so we will give you <strong>examples using local
     <li><a href="#requirement">Requirement</a></li>
     <li><a href="#database">Setup database connection</a></li>
     <li><a href="#whattodo">What to do ?</a></li>
+    <li><a href="#getapi">Get an ApiKey</a></li>
+    <li><a href="#setupapi">Setup my ApiKey</a></li>
 </ul>
 
 Our API will allow you to access a blog from your own website.
@@ -49,7 +51,7 @@ Yes! We have now the vendor folder. Now, we can run the server :
 ```
 php -S 0.0.0.0:8080 public public/index.php
 ```
-<h2>Get an ApiKey</h2>
+<h2 id="getapi">Get an ApiKey</h2>
 <b>IMPORTANT: </b>You need to register an account before doing that because you need an apiKey! Here are the steps to get your apiKey.
 <ul>
     <li>You need to send a POST request to the route "/register" with a JSON including       {"username":"YOURUSERNAME","password":"YOURPASSWORD"}</li>
@@ -62,7 +64,7 @@ php -S 0.0.0.0:8080 public public/index.php
   "apikey":"APIKEY GOES HERE"
 }
 ```
-<h2>How to use my ApiKey?</h2>
+<h2 id="setupapi">How to use my ApiKey?</h2>
 Since you have your ApiKey, you will have to set a header named "Authorization" and your ApiKey as value.
 
 <h2>So here are the differents routes for ARTICLES :</h2>
