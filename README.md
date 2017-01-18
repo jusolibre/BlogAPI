@@ -21,7 +21,7 @@ We also add a comment management so you can use differents routes like for artic
   - <a href="#PUTcomment">add a comment</a>,
   - <a href="#PATCHcomment">modify a comment</a>,
   - <a href="#DELETEcomment">and finally delete a comment</a>.
-<br><br><br>
+<br>
 
 <h2>So here are the differents routes :</h2>
 
