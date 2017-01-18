@@ -15,10 +15,10 @@ Using differents routes you will be able to :
 <br>
 
 We also add a comment management so you can use differents routes like for articles :
-  - <a href="#GETcomments">list the comments on a specific article</a>,
-  - <a href="#PUTcomment">add a comment</a>,
-  - <a href="#PATCHcomment">modify a comment</a>,
-  - <a href="#DELETEcomment">and finally delete a comment</a>.
+  - <a href="#GETcomments">List all comments from a specific article</a>,
+  - <a href="#PUTcomment">Add a comment</a>,
+  - <a href="#PATCHcomment">Edit a comment</a>,
+  - <a href="#DELETEcomment">Delete a comment</a>.
 <br>
 
 <h2>So here are the differents routes :</h2>
