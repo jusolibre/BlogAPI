@@ -33,7 +33,7 @@ First, you need to be able to send a JSON with required arguments and receive a 
 localhost:8080/articles
 ```
 
-The Json response will look like (in case of success):
+If we have all required arguments and if everything is good, the JSON response will look like that : 
 ```
 [
   {
