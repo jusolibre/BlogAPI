@@ -21,6 +21,13 @@ We also add a comment management so you can use differents routes like for artic
   - <a href="#DELETEcomment">Delete a comment</a>.
 <br>
 
+<h2>Requirement</h2>
+<ul>
+    <li>PHP 5 >=</li>
+    <li>Xampp or Wampp (Only if you try this project in local)</li>
+    <li>Composer</li>
+</ul>
+
 <h2>Setup database connection</h2>
 Of course, you have to setup your database connection informations. To do that, go on the "src" folder and open the file "settings.php". You will see an array called "db" with all database informations. Feel free to edit them with your database informations! <br />
 
