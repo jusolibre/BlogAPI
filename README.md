@@ -86,8 +86,6 @@ If you provided a valid JSON and ID, the informations of the article will be ret
   "date": "YYYY-MM-DD"
 }
 ```
-<br>
-
 Otherwise, you will have an error : 
 ```
 {
