@@ -97,7 +97,7 @@ This route needs the argument "id" and the article ID. (numeric)
 <br>
 
 <h4 style="font-size=180%;text-decoration: underline;" id="DELETEarticle">DELETE an article :</h4><hr>
-
+<em style="font-size:80%;">This route allows you to delete an article. To do it, you will have to send a json with the argument "id" and the article ID you want to delete by using a POST request. For example : To delete the article "1", I will have to send that JSON: {"id":1}.</em>
 ```
 localhost:8080/article
 ["id"]
