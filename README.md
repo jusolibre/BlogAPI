@@ -136,7 +136,7 @@ This route needs the argument "id" and the article ID. (numeric)
 <br>
 
 <h4 style="font-size=180%;text-decoration: underline;" id="DELETEarticle">DELETE an article :</h4><hr>
-<em style="font-size:80%;">This route allows you to delete an article. To do it, you will have to send a json with the argument "id" and the article ID you want to delete by using a POST request. For example : To delete the article "1", I will have to send that JSON: {"id":1}.</em>
+<em style="font-size:80%;">This route allows you to delete an article. To do it, you will have to send a json with the argument "id" and the article ID you want to delete by using a DELETE request. For example : To delete the article "1", I will have to send that JSON: {"id":1}.</em>
 ```
 localhost:8080/article
 ["id"]
@@ -159,8 +159,8 @@ Otherwise, you will have an error if the article is not found or if you are not 
 This route needs the argument "id" and the article ID. (numeric)
 <br>
 
-<h4 style="font-size=180%;text-decoration: underline;" id="PATCHarticle">PATCH article :</h4><hr>
-<em style="font-size:80%;">This route allows you to update an article. To do it, you will have to send a json with the arguments "id" (required), "author" and "message" but they are not required, by using a POST request. <br />
+<h4 style="font-size=180%;text-decoration: underline;" id="PATCHarticle">UPDATE an article :</h4><hr>
+<em style="font-size:80%;">This route allows you to update an article. To do it, you will have to send a json with the arguments "id" (required), "author" and "message" but they are not required, by using a PATCH request. <br />
 
 For example : To update the article "1", I will have to send that JSON: {"id":1, "author":"Clement", "message": "Hello world!"}.</em>
 
@@ -186,7 +186,7 @@ Otherwise, you will have an error message :
 }
 ```
 
-<h4 style="font-size=180%;text-decoration: underline;" id="PUTarticle">PUT article :</h4><hr>
+<h4 style="font-size=180%;text-decoration: underline;" id="PUTarticle">Insert an article :</h4><hr>
 <em style="font-size:80%;">This route allows you to update a new article. To do it, you will have to send a json with the arguments "title", "message", "author" by using a PUT request. <br />
 
 For example : To insert a new article, I will have to send that JSON: {"author":"Clement", "message": "Hello world!", "title":"New article!"}.</em>
@@ -237,7 +237,7 @@ Otherwise, you will have an error message :
   "message": "Error msg"
 }
 ```
-<h4 style="font-size=180%;text-decoration: underline;" id="PUTcomment">PUT comment :</h4><hr>
+<h4 style="font-size=180%;text-decoration: underline;" id="PUTcomment">Insert a comment :</h4><hr>
 <em style="font-size:80%;">This route allows you to insert a new comment on the article you have chosen. To do it, you will have to send a json with the arguments "article_id", "title", "comment" by using a PUT request. <br />
 
 For example : To insert a new comment on the article ID 1, I will have to send that JSON: {"author":"Julien", "article_id":1, "comment":"Hello!"}.</em>
@@ -260,7 +260,7 @@ Otherwise, you will have an error if the article is not found or if you are not 
   "message": "Error msg"
 }
 ```
-<h4 style="font-size=180%;text-decoration: underline;" id="PATCHcomment">PATCH comment :</h4><hr>
+<h4 style="font-size=180%;text-decoration: underline;" id="PATCHcomment">Update a comment :</h4><hr>
 <em style="font-size:80%;">This route allows you to update a comment on the article you have chosen. To do it, you will have to send a json with the arguments "id" (comment_id, required), "title", "comment" (but they are not required) by using a PATCH request. <br />
 
 For example : To update the comment ID 1, I will have to send that JSON: {"id":1, "author":"Clement","comment":"Hello!"}.</em>
