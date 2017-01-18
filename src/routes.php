@@ -36,11 +36,11 @@ $app->delete('/article', function($request, $response, $args) {
             $data = ["error" => true, "message" => "Argument id is missing or it's not numeric!"];
         } else {
             $id = (int)$json["id"];
-            $data = Articles::selectById($id);
+            $info = Articles::selectById($id);
             if (!isset($info["id"])) {
                 $data = ["error" => true, "message" => "Article not found"];
             } else {
-                $data   = $user == $data["author"] ? Articles::deleteById($id) : ["error" => true, "message" => "You are not allowed to delete this article."];
+                $data   = $user == $info["author"] ? Articles::deleteById($id) : ["error" => true, "message" => "You are not allowed to delete this article."];
             }
         }
     }
