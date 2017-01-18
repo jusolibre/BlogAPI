@@ -24,6 +24,11 @@ class Connection {
         }
         return $data;
     }
+    
+    static public function getHeader() {
+        $auth   = getallheaders();
+        return isset($auth["Authorization"]) ? Connection::getUsername($auth["Authorization"]) : false;
+    }
 
     static private function verifyApiKey($apiKey) {
         $query  = DataBase::bdd()->query("SELECT * FROM users WHERE apiKey ='{$apiKey}'");
