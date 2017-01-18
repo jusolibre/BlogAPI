@@ -71,8 +71,6 @@ Since you have your ApiKey, you will have to set a header named "Authorization" 
 
 First, you need to be able to send a JSON with required arguments and receive a response in a JSON.
 
-<h3 style="font-size:200%;">ARTICLE :</h3>
-
 <h4 style="font-size=180%;text-decoration: underline;" id="articles">GET all articles :</h4><hr>
 
 ```
