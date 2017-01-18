@@ -28,13 +28,21 @@ $app->get("/articles", function($request, $response) {
  * @param : The argument 'id' is required and must be a int in the JSON. (Example : 1)
  */
 $app->delete('/article', function($request, $response, $args) {
-    $json   = json_decode($request->getBody(), true);
-    if ((!isset($json["id"])) || (!is_numeric($json["id"]))) {
-        $data = ["error" => true, "message" => "Argument id is missing or it's not numeric!"];
+    if (($user = Connection::getHeader()) == false) {
+        $data = ["error" => true, "message" => "Wrong apiKey"];
     } else {
-        $id     = (int) $json["id"];
-        $data   = Articles::selectById($id);
-        $data   = isset($data["id"]) ? Articles::deleteById($id) : ["error" => true, "message" => "Article not found"];
+        $json = json_decode($request->getBody(), true);
+        if ((!isset($json["id"])) || (!is_numeric($json["id"]))) {
+            $data = ["error" => true, "message" => "Argument id is missing or it's not numeric!"];
+        } else {
+            $id = (int)$json["id"];
+            $data = Articles::selectById($id);
+            if (!isset($info["id"])) {
+                $data = ["error" => true, "message" => "Article not found"];
+            } else {
+                $data   = $user == $data["author"] ? Articles::deleteById($id) : ["error" => true, "message" => "You are not allowed to delete this article."];
+            }
+        }
     }
     $response->withHeader('Content-type', 'application/json');
     return $response->withJson($data, 200, JSON_PRETTY_PRINT);
@@ -46,18 +54,22 @@ $app->delete('/article', function($request, $response, $args) {
  * @param : The argument 'id' is required and must be a int. (Example : 1)
  */
 $app->patch('/article', function($request, $response, $args) {
-    $json   = json_decode($request->getBody(), true);
-    if ((!isset($json["id"])) || (!is_numeric($json["id"]))) {
-        $data = ["error" => true, "message" => "The id argument must be numeric."];
+    if (($user = Connection::getHeader()) == false) {
+        $data = ["error" => true, "message" => "Wrong apiKey"];
     } else {
-        $id         = (int) $json["id"];
-        $info       = Articles::selectById($id);
-        if (isset($info["id"])) {
-            $title      = isset($json["title"]) ? htmlspecialchars($json["title"]) : $info["title"];
-            $message    = isset($json["message"]) ? htmlspecialchars($json["message"]) : $info["message"];
-            $data       = Articles::updateById($id, $title, $message);
+        $json   = json_decode($request->getBody(), true);
+        if ((!isset($json["id"])) || (!is_numeric($json["id"]))) {
+            $data = ["error" => true, "message" => "The id argument must be numeric."];
         } else {
-            $data = ["error" => true, "message" => "Article not found"];
+            $id         = (int) $json["id"];
+            $info       = Articles::selectById($id);
+            if (!isset($info["id"])) {
+                $data = ["error" => true, "message" => "Article not found"];
+            } else {
+                $title      = isset($json["title"]) ? htmlspecialchars($json["title"]) : $info["title"];
+                $message    = isset($json["message"]) ? htmlspecialchars($json["message"]) : $info["message"];
+                $data       = $user == $info["author"] ? Articles::updateById($id, $title, $message) : ["error" => true, "message" => "You are not allowed to update this article."];
+            }
         }
     }
     $response->withHeader('Content-type', 'application/json');
@@ -82,19 +94,22 @@ $app->post('/search', function ($request, $response, $args) {
  * @param : A json with the argument 'Title', 'Message' and 'Author'.
  */
 $app->put('/article', function ($request, $response) { // SAVE A NEW ARTICLE FROM A JSON
-	$error	= false;
-	$form	= ["title", "message", "author"];
-	$json	= json_decode($request->getBody(), true);
-	$error  = checkJson($form, $json);
+    if (($user = Connection::getHeader()) == false) {
+        $data = ["error" => true, "message" => "Wrong apiKey"];
+    } else {
+        $form = ["title", "message"];
+        $json = json_decode($request->getBody(), true);
+        $error = checkJson($form, $json);
 
-	if ($error == false) {
-		$title		= htmlspecialchars($json["title"]);
-		$message	= htmlspecialchars($json["message"]);
-		$author 	= htmlspecialchars($json["author"]);
-        $data       = Articles::insert($title, $message, $author);
-	} else {		
-		$data = ["error" => true, "message" => "Missing arguments in your JSON."];
-	}
+        if ($error == false) {
+            $title = htmlspecialchars($json["title"]);
+            $message = htmlspecialchars($json["message"]);
+            $author = $user;
+            $data = Articles::insert($title, $message, $author);
+        } else {
+            $data = ["error" => true, "message" => "Missing arguments in your JSON."];
+        }
+    }
 	$response->withHeader('Content-type', 'application/json');
 	return $response->withJson($data, 200, JSON_PRETTY_PRINT);
 });
