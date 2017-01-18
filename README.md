@@ -57,7 +57,7 @@ If we have all required arguments and if everything is good, the JSON response w
 <br>
 
 
-And in case of fail, or if there is nothing in the database :
+Otherwise, if something is missing or if something is wrong, we will have that kind of JSON : 
 ```
 {
   "error": true,
