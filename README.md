@@ -96,8 +96,7 @@ Otherwise, you will have an error :
 This route needs the argument "id" and the article ID. (numeric)
 <br>
 
-
-<h4 style="font-size=180%;text-decoration: underline;" id="DELETEarticle">DELETE article :</h4><hr>
+<h4 style="font-size=180%;text-decoration: underline;" id="DELETEarticle">DELETE an article :</h4><hr>
 
 ```
 localhost:8080/article
