@@ -7,11 +7,11 @@ This API was created using slim so we will give you <strong>examples using local
 
 Our API will allow you to access a blog from your own website.
 Using differents routes you will be able to :
-  - <a href="#articles">list the differents articles</a>,
-  - <a href="#GETarticle">get a specific one</a>,
-  - <a href="#PUTarticle">add some article</a>,
-  - <a href="#PATCHarticle">update the article</a>,
-  - <a href="#DELETEarticle">and finally delete article one by one</a>.
+  - <a href="#articles">List all articles</a>,
+  - <a href="#GETarticle">Get an article</a>,
+  - <a href="#PUTarticle">Add an article</a>,
+  - <a href="#PATCHarticle">Update an article</a>,
+  - <a href="#DELETEarticle">Delete an article (one by one)</a>.
 <br>
 
 We also add a comment management so you can use differents routes like for articles :
