@@ -38,5 +38,8 @@ require __DIR__ . '/../models/account.class.php';
 // Register comments routes
 require  __DIR__ . '/../src/commentsRoutes.php';
 
+// Register account routes
+require __DIR__ . '/../src/accountRoute.php';
+
 // Run app
 $app->run();
